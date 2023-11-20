@@ -28,10 +28,10 @@ function CarouselComponent() {
     },
   ];
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <Carousel className="mx-3" activeIndex={index} onSelect={handleSelect}>
       {ArrayObj.map((r) => {
         return (
-          <Carousel.Item key={r.Label}>
+          <Carousel.Item key={r.Label} className="text-center">
             <img
               src={r.Image}
               alt="placeholder"

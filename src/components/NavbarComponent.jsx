@@ -1,18 +1,21 @@
 import { Button, Form } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function NavbarComponent() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <>
       <Navbar bg="black" data-bs-theme="dark" className="border-bottom ">
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
-          <Navbar.Brand href="#home" className="me-5">
+          <Link to="/" className="me-5 text-light nav-link">
             HOME
-          </Navbar.Brand>
+          </Link>
           <div className="d-flex">
             <Form className="d-flex">
               <Form.Control
@@ -24,24 +27,43 @@ function NavbarComponent() {
               <Button
                 variant="outline"
                 className=" d-flex justify-content-center align-items-center"
+                onClick={() => navigate("/shopping-cart")}
               >
                 <FaSearch></FaSearch>
               </Button>
             </Form>
-            <Nav className="">
-              <Nav.Link href="#home">Upload</Nav.Link>
-              <Nav.Link href="#features">Profile</Nav.Link>
+            <Nav className="d-flex align-items-center">
+              <Link
+                to="/upload"
+                className={
+                  location.pathname === "/upload"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                Upload
+              </Link>
+              <Link
+                to="/profile"
+                className={
+                  location.pathname === "/profile"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                Profile
+              </Link>
             </Nav>
           </div>
           <Nav className="">
-            <Nav.Link href="#pricing"></Nav.Link>
-
-            <Button
-              variant="outline-light"
-              className="d-flex justify-content-center align-items-center"
-            >
-              <FaShoppingCart></FaShoppingCart>
-            </Button>
+            <Link to="/shopping-cart" className="nav-link">
+              <Button
+                variant="outline-light"
+                className="d-flex justify-content-center align-items-center"
+              >
+                <FaShoppingCart></FaShoppingCart>
+              </Button>
+            </Link>
           </Nav>
         </div>
       </Navbar>

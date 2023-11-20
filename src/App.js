@@ -1,36 +1,29 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarComponent from "./components/NavbarComponent";
-import CarouselComponent from "./components/CarouselComponent";
-import { Container, Row, Col } from "react-bootstrap";
+import Profile from "./components/Profile";
 import "../src/assets/style.css";
-import TrackElement from "./components/TrackElement";
-import AsideComponent from "./components/AsideComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import NotFound from "./components/NotFound";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   return (
-    <div className="App bg-black vh-100">
-      <NavbarComponent></NavbarComponent>
-
-      <Container>
-        <Row className="">
-          <Col md={8} className="d-flex flex-column align-items-center">
-            <h2 className="text-light text-center">You might Like</h2>
-            {/* <CarouselComponent></CarouselComponent> */}
-            <TrackElement></TrackElement>
-            <TrackElement></TrackElement>
-            <TrackElement></TrackElement>
-            <TrackElement></TrackElement>
-            <TrackElement></TrackElement>
-          </Col>
-          <Col md={4}>
-            {/* className="border-start border-light" */}
-            <h2 className="text-light text-center">Suggestions</h2>
-            <AsideComponent></AsideComponent>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <BrowserRouter>
+      <div className="bg-black">
+        <NavbarComponent></NavbarComponent>
+        <Routes>
+          <Route element={<Home></Home>} path="/"></Route>
+          <Route element={<Profile></Profile>} path="/profile"></Route>
+          <Route
+            element={<ShoppingCart></ShoppingCart>}
+            path="/shopping-cart"
+          ></Route>
+          <Route element={<NotFound />} path="*" />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
