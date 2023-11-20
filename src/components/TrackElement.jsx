@@ -2,6 +2,7 @@ import { Button } from "react-bootstrap";
 
 import { FaHeart } from "react-icons/fa";
 import { TiPlus } from "react-icons/ti";
+import { IoMdPlayCircle } from "react-icons/io";
 
 function TrackElement() {
   return (
@@ -18,7 +19,10 @@ function TrackElement() {
           <h3 className="text-start mb-0">Track Title</h3>
           <p className="m-0">Artist name</p>
         </div>
-        <hr></hr>
+        <div className="d-flex w-100 align-items-center">
+          <IoMdPlayCircle></IoMdPlayCircle>
+          <hr className="flex-grow-1 mx-2"></hr>
+        </div>
         <div className="d-flex">
           <Button
             variant="black"

@@ -22,6 +22,9 @@ function App() {
           ></Route>
           <Route element={<NotFound />} path="*" />
         </Routes>
+        <footer className="text-center fixed-bottom mb-3 text-secondary">
+          BEATS {new Date().getFullYear()}
+        </footer>
       </div>
     </BrowserRouter>
   );
