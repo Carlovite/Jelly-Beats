@@ -6,8 +6,10 @@ const Home = () => {
   return (
     <Container>
       <Row className="">
-        <Col md={8} className="d-flex flex-column align-items-center">
-          <h2 className="text-light text-center">You might Like</h2>
+        <Col sm={12} md={8} className="d-flex flex-column align-items-center">
+          <h2 className="text-light text-center decoration">
+            Tracks you might Like
+          </h2>
           <TrackElement></TrackElement>
         </Col>
         <Col md={4}>

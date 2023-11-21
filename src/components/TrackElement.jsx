@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-
+import { IoMdPause } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { TiPlus } from "react-icons/ti";
 import { IoMdPlayCircle } from "react-icons/io";
@@ -16,14 +16,25 @@ function TrackElement() {
       />
       <div className="flex-grow-1 mx-3">
         <div className="d-flex justify-content-between align-items-center">
-          <h3 className="text-start mb-0">Track Title</h3>
-          <p className="m-0">Artist name</p>
+          <h3 className="text-start mb-0 mx-2">Track Title</h3>
+          <p className="m-0 mx-2">Artist name</p>
         </div>
         <div className="d-flex w-100 align-items-center">
-          <IoMdPlayCircle></IoMdPlayCircle>
           <hr className="flex-grow-1 mx-2"></hr>
         </div>
         <div className="d-flex">
+          <Button
+            variant="black"
+            className=" text-light d-flex justify-content-center align-items-center"
+          >
+            <IoMdPlayCircle></IoMdPlayCircle>
+          </Button>
+          <Button
+            variant="black"
+            className=" text-light d-flex justify-content-center align-items-center"
+          >
+            <IoMdPause></IoMdPause>
+          </Button>
           <Button
             variant="black"
             className="me-2 text-light d-flex justify-content-center align-items-center"

@@ -11,7 +11,11 @@ function NavbarComponent() {
 
   return (
     <>
-      <Navbar bg="black" data-bs-theme="dark" className="border-bottom ">
+      <Navbar
+        bg="black"
+        data-bs-theme="dark"
+        className="border-bottom d-none d-md-flex"
+      >
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
           <Link to="/" className="me-5 text-light nav-link">
             HOME
@@ -25,9 +29,10 @@ function NavbarComponent() {
                 aria-label="Search"
               ></Form.Control>
               <Button
+                type="submit"
                 variant="outline"
                 className=" d-flex justify-content-center align-items-center"
-                onClick={() => navigate("/shopping-cart")}
+                // onClick={() => navigate("/shopping-cart")}
               >
                 <FaSearch></FaSearch>
               </Button>

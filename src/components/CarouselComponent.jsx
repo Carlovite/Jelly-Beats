@@ -13,17 +13,17 @@ function CarouselComponent() {
   const ArrayObj = [
     {
       Image: Dog1,
-      Label: "ciao1",
+      Label: "Sound Kits",
       Description: "Lorem ipsum",
     },
     {
       Image: Dog2,
-      Label: "ciao2",
+      Label: "Beats",
       Description: "Lorem ipsum22",
     },
     {
       Image: Dog3,
-      Label: "ciao3",
+      Label: "Collabs",
       Description: "Lorem ipsum333",
     },
   ];

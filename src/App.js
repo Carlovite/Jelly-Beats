@@ -7,14 +7,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 import ShoppingCart from "./components/ShoppingCart";
+import UploadPage from "./components/UploadPage";
+import NavbarMobile from "./components/NavbarMobile";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="bg-black">
         <NavbarComponent></NavbarComponent>
+        <NavbarMobile></NavbarMobile>
         <Routes>
           <Route element={<Home></Home>} path="/"></Route>
+          <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
           <Route
             element={<ShoppingCart></ShoppingCart>}
@@ -22,9 +26,9 @@ function App() {
           ></Route>
           <Route element={<NotFound />} path="*" />
         </Routes>
-        <footer className="text-center fixed-bottom mb-3 text-secondary">
+        {/* <footer className="text-center fixed-bottom mb-3 text-secondary">
           BEATS {new Date().getFullYear()}
-        </footer>
+        </footer> */}
       </div>
     </BrowserRouter>
   );
