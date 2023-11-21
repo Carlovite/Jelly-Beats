@@ -1,17 +1,44 @@
-import { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { database } from "../Indexfirebase";
+import { collection, addDoc } from "firebase/firestore";
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function UploadPage() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
   const inputRef = useRef(null);
+  const [title, setTitle] = useState("");
+  const [artist, setArtist] = useState("");
+  const [bpm, setBpm] = useState("");
+  const beatInput = useRef(null);
+  const navigate = useNavigate();
+  const [newBeat, setNewBeat] = useState([]);
 
-  const [newBeat, setNewBeat] = useState("");
-  const HandleSubmit = async (e) => {
+  const [beats, setBeats] = useState([]);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newBeat);
+    try {
+      await addDoc(collection(database, "beats"), {
+        title: title,
+        artist: artist,
+        bpm: bpm,
+      });
+      navigate("/profile");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    const ing = newBeat.trim();
+    if (ing && !beats.includes(ing)) {
+      setBeats((prevBeats) => [...prevBeats, ing]);
+    }
     setNewBeat("");
+    beatInput.current.focus();
   };
 
   const handleUpload = () => {
@@ -26,21 +53,33 @@ function UploadPage() {
       <Row className="d-flex justify-content-center">
         <Col md={6} className="my-3">
           <h2 className="text-white">Upload an item</h2>
-          <Form className="bg-black text-light" onSubmit={HandleSubmit}>
+          <Form className="bg-black text-light" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="title">
               <Form.Control
                 type="text"
                 placeholder="Title"
                 required
-                onChange={(e) => setNewBeat(e.target.value)}
-                value={newBeat}
+                onChange={(e) => setTitle(e.target.value)}
+                value={title}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="artist">
-              <Form.Control type="text" placeholder="Artist" required />
+              <Form.Control
+                type="text"
+                placeholder="Artist"
+                required
+                onChange={(e) => setArtist(e.target.value)}
+                value={artist}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="bpm">
-              <Form.Control type="number" placeholder="BPM" required />
+              <Form.Control
+                type="number"
+                placeholder="BPM"
+                required
+                onChange={(e) => setBpm(e.target.value)}
+                value={bpm}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
