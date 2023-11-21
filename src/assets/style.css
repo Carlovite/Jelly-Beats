@@ -19,3 +19,9 @@ body {
 .navlink:hover {
   color: #a9a9a9;
 } */
+.lessImportant {
+  color: #a9a9a9;
+}
+.Fs8 {
+  font-size: 0.8rem;
+}

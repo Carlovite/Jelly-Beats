@@ -14,58 +14,56 @@ function NavbarMobile() {
 
   return (
     <>
-      <Navbar bg="black" data-bs-theme="dark">
-        <Nav className=" d-flex d-md-none text-light mb-2 fixed-bottom align-items-center justify-content-evenly">
-          <Link
-            to="/"
-            className={
-              location.pathname === "/" ? "nav-link  active " : "nav-link  "
-            }
-          >
-            <HiHome></HiHome>
-          </Link>
-          <Link
-            to="/search"
-            className={
-              location.pathname === "/search"
-                ? "nav-link  active "
-                : "nav-link  "
-            }
-          >
-            <FaSearch></FaSearch>
-          </Link>
-          <Link
-            to="/upload"
-            className={
-              location.pathname === "/upload"
-                ? "nav-link  active "
-                : "nav-link  "
-            }
-          >
-            <MdUpload></MdUpload>
-          </Link>
-          <Link
-            to="/profile"
-            className={
-              location.pathname === "/profile"
-                ? "nav-link  active "
-                : "nav-link  "
-            }
-          >
-            <MdAccountCircle></MdAccountCircle>
-          </Link>
-          <Link
-            to="/shopping-cart"
-            className={
-              location.pathname === "/shopping-cart"
-                ? "nav-link  active "
-                : "nav-link  "
-            }
-          >
-            <FaShoppingCart></FaShoppingCart>
-          </Link>
-        </Nav>
-      </Navbar>
+      <Nav
+        data-bs-theme="dark"
+        className=" d-flex d-md-none mb-2 fixed-bottom align-items-center justify-content-evenly navlink"
+      >
+        <Link
+          to="/"
+          className={
+            location.pathname === "/" ? "nav-link  active " : "nav-link  "
+          }
+        >
+          <HiHome></HiHome>
+        </Link>
+        <Link
+          to="/search"
+          className={
+            location.pathname === "/search" ? "nav-link  active " : "nav-link  "
+          }
+        >
+          <FaSearch></FaSearch>
+        </Link>
+        <Link
+          to="/upload"
+          className={
+            location.pathname === "/upload" ? "nav-link  active " : "nav-link  "
+          }
+        >
+          <MdUpload></MdUpload>
+        </Link>
+        <Link
+          to="/profile"
+          className={
+            location.pathname === "/profile"
+              ? "nav-link  active "
+              : "nav-link  "
+          }
+        >
+          <MdAccountCircle></MdAccountCircle>
+        </Link>
+        <Link
+          to="/shopping-cart"
+          className={
+            location.pathname === "/shopping-cart"
+              ? "nav-link  active "
+              : "nav-link  "
+          }
+        >
+          <FaShoppingCart></FaShoppingCart>
+        </Link>
+      </Nav>
+
       <br />
     </>
   );

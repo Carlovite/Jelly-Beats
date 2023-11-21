@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import ShoppingCart from "./components/ShoppingCart";
 import UploadPage from "./components/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
+import Details from "./components/Details";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <NavbarMobile></NavbarMobile>
         <Routes>
           <Route element={<Home></Home>} path="/"></Route>
+          <Route element={<Details></Details>} path="/tracks"></Route>
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
           <Route

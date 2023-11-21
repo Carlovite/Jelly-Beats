@@ -18,7 +18,7 @@ function NavbarComponent() {
       >
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
           <Link to="/" className="me-5 text-light nav-link">
-            HOME
+            LOGO
           </Link>
           <div className="d-flex">
             <Form className="d-flex">
@@ -38,6 +38,24 @@ function NavbarComponent() {
               </Button>
             </Form>
             <Nav className="d-flex align-items-center">
+              <Link
+                to="/"
+                className={
+                  location.pathname === "/" ? "nav-link active" : "nav-link"
+                }
+              >
+                Home
+              </Link>
+              <Link
+                to="/tracks"
+                className={
+                  location.pathname === "/tracks"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                Tracks
+              </Link>
               <Link
                 to="/upload"
                 className={
@@ -61,13 +79,6 @@ function NavbarComponent() {
             </Nav>
           </div>
 
-          <img
-            src="https://placedog.net/500"
-            alt="profile account"
-            width={40}
-            height={40}
-            className="rounded-circle"
-          ></img>
           <Nav className="">
             <Link to="/shopping-cart" className="nav-link">
               <Button
