@@ -5,12 +5,9 @@ const Profile = () => {
   return (
     <>
       <Container>
-        <Row className="my-3">
+        <Row className="my-3 d-flex justify-content-center">
           <Col md={8}>
             <CarouselComponent></CarouselComponent>
-          </Col>
-          <Col md={4}>
-            <h2 className="text-center my-3 text-light">Tracks you liked</h2>
           </Col>
         </Row>
       </Container>

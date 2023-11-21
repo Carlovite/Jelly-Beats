@@ -3,11 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function NavbarComponent() {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <>
@@ -60,10 +60,18 @@ function NavbarComponent() {
               </Link>
             </Nav>
           </div>
+
+          <img
+            src="https://placedog.net/500"
+            alt="profile account"
+            width={40}
+            height={40}
+            className="rounded-circle"
+          ></img>
           <Nav className="">
             <Link to="/shopping-cart" className="nav-link">
               <Button
-                variant=""
+                variant="outline"
                 className="d-flex justify-content-center align-items-center"
               >
                 <FaShoppingCart></FaShoppingCart>

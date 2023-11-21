@@ -24,7 +24,16 @@ function NavbarMobile() {
           >
             <HiHome></HiHome>
           </Link>
-
+          <Link
+            to="/search"
+            className={
+              location.pathname === "/search"
+                ? "nav-link  active "
+                : "nav-link  "
+            }
+          >
+            <FaSearch></FaSearch>
+          </Link>
           <Link
             to="/upload"
             className={

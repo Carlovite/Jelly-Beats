@@ -3,9 +3,10 @@ import { IoMdPause } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
-import Player from "./Player";
+import { useNavigate } from "react-router-dom";
 
 function TrackElement() {
+  const navigate = useNavigate();
   return (
     <div className=" w-100 text-white d-flex justify-content-around my-4">
       <img
@@ -14,6 +15,7 @@ function TrackElement() {
         width={90}
         height={90}
         className="ms-2"
+        onClick={() => navigate("/detail-page")}
       />
       <div className="flex-grow-1 mx-3">
         <div className="d-flex justify-content-between align-items-center">
@@ -50,9 +52,7 @@ function TrackElement() {
               <IoMdAddCircle></IoMdAddCircle>
             </Button>
           </div>
-          <div className="w-25 me-2">
-            <Player></Player>
-          </div>
+          <div className="w-25 me-2">{/* <Player></Player> */}</div>
         </div>
       </div>
     </div>
