@@ -1,16 +1,15 @@
-import { Button, Form } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HiHome } from "react-icons/hi";
 import { MdAccountCircle } from "react-icons/md";
 import { MdUpload } from "react-icons/md";
 
 function NavbarMobile() {
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <>

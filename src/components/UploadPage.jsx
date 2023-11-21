@@ -7,6 +7,13 @@ function UploadPage() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
   const inputRef = useRef(null);
 
+  const [newBeat, setNewBeat] = useState("");
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(newBeat);
+    setNewBeat("");
+  };
+
   const handleUpload = () => {
     inputRef.current?.click();
   };
@@ -19,20 +26,22 @@ function UploadPage() {
       <Row className="d-flex justify-content-center">
         <Col md={6} className="my-3">
           <h2 className="text-white">Upload an item</h2>
-          <Form className="bg-black text-light">
+          <Form className="bg-black text-light" onSubmit={HandleSubmit}>
             <Form.Group className="mb-3" controlId="title">
-              <Form.Control type="text" placeholder="Title" />
+              <Form.Control
+                type="text"
+                placeholder="Title"
+                required
+                onChange={(e) => setNewBeat(e.target.value)}
+                value={newBeat}
+              />
             </Form.Group>
-            <Form.Select
-              aria-label="Default select example"
-              className="mb-3"
-              placeholder="type"
-            >
-              <option>Type</option>
-              <option value="1">Instrumental</option>
-              <option value="2">Sound Kit</option>
-              <option value="3">Service</option>
-            </Form.Select>
+            <Form.Group className="mb-3" controlId="artist">
+              <Form.Control type="text" placeholder="Artist" required />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="bpm">
+              <Form.Control type="number" placeholder="BPM" required />
+            </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
               <Form.Control type="text-area" placeholder="Description" />
@@ -55,7 +64,7 @@ function UploadPage() {
               </button>
             </div>
             <Button variant="primary" type="submit">
-              Upload
+              Send
             </Button>
           </Form>
         </Col>
