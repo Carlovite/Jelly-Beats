@@ -63,7 +63,7 @@ function NavbarComponent() {
           <Nav className="">
             <Link to="/shopping-cart" className="nav-link">
               <Button
-                variant="outline-light"
+                variant=""
                 className="d-flex justify-content-center align-items-center"
               >
                 <FaShoppingCart></FaShoppingCart>

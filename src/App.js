@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import NavbarComponent from "./components/NavbarComponent";
 import Profile from "./components/Profile";
 import "../src/assets/style.css";

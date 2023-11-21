@@ -1,8 +1,9 @@
 import { Button } from "react-bootstrap";
 import { IoMdPause } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
-import { TiPlus } from "react-icons/ti";
+import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
+import Player from "./Player";
 
 function TrackElement() {
   return (
@@ -22,31 +23,36 @@ function TrackElement() {
         <div className="d-flex w-100 align-items-center">
           <hr className="flex-grow-1 mx-2"></hr>
         </div>
-        <div className="d-flex">
-          <Button
-            variant="black"
-            className=" text-light d-flex justify-content-center align-items-center"
-          >
-            <IoMdPlayCircle></IoMdPlayCircle>
-          </Button>
-          <Button
-            variant="black"
-            className=" text-light d-flex justify-content-center align-items-center"
-          >
-            <IoMdPause></IoMdPause>
-          </Button>
-          <Button
-            variant="black"
-            className="me-2 text-light d-flex justify-content-center align-items-center"
-          >
-            <FaHeart></FaHeart>
-          </Button>
-          <Button
-            variant="black"
-            className="me-2 text-light d-flex justify-content-center align-items-center"
-          >
-            <TiPlus></TiPlus>
-          </Button>
+        <div className="d-flex justify-content-between">
+          <div className="d-flex flex-row">
+            <Button
+              variant="black"
+              className=" text-light d-flex justify-content-center align-items-center"
+            >
+              <IoMdPlayCircle></IoMdPlayCircle>
+            </Button>
+            <Button
+              variant="black"
+              className=" text-light d-flex justify-content-center align-items-center"
+            >
+              <IoMdPause></IoMdPause>
+            </Button>
+            <Button
+              variant="black"
+              className=" text-light d-flex justify-content-center align-items-center"
+            >
+              <FaHeart></FaHeart>
+            </Button>
+            <Button
+              variant="black"
+              className=" text-light d-flex justify-content-center align-items-center"
+            >
+              <IoMdAddCircle></IoMdAddCircle>
+            </Button>
+          </div>
+          <div className="w-25 me-2">
+            <Player></Player>
+          </div>
         </div>
       </div>
     </div>
