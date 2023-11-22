@@ -20,7 +20,7 @@ function App() {
         <NavbarMobile></NavbarMobile>
         <Routes>
           <Route element={<Home></Home>} path="/"></Route>
-          <Route element={<Details></Details>} path="/tracks"></Route>
+          <Route element={<Details></Details>} path="/details-page"></Route>
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
           <Route

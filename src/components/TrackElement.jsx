@@ -6,7 +6,6 @@ import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
 function TrackElement(props) {
-  console.log(props.beats);
   const navigate = useNavigate();
   return (
     <>
@@ -22,12 +21,22 @@ function TrackElement(props) {
               width={90}
               height={90}
               className="ms-2"
-              onClick={() => navigate("/detail-page")}
+              onClick={() => navigate("/details-page")}
             />
             <div className="flex-grow-1 mx-3">
               <div className="d-flex justify-content-between align-items-center">
-                <h3 className="text-start mb-0 mx-2">{r.title}</h3>
-                <p className="m-0 mx-2">{r.artist}</p>
+                <h3
+                  className="text-start mb-0 mx-2"
+                  onClick={() => navigate("/details-page")}
+                >
+                  {r.title}
+                </h3>
+                <p
+                  className="m-0 mx-2"
+                  onClick={() => navigate("/artist-page")}
+                >
+                  {r.artist}
+                </p>
               </div>
               <div className="d-flex w-100 align-items-center">
                 <hr className="flex-grow-1 mx-2"></hr>
