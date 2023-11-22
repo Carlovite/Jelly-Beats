@@ -3,12 +3,14 @@ import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-function TrackElement(props) {
+function TrackElement(beatSelected) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <>
-      {props.beats.map((r) => {
+      {beatSelected.beats.map((r) => {
         return (
           <div
             className=" w-100 text-white d-flex justify-content-around my-5 "
@@ -51,7 +53,15 @@ function TrackElement(props) {
                   <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <FaHeart></FaHeart>
                   </div>
-                  <div className="d-flex justify-content-center align-items-center TwClickable me-3">
+                  <div
+                    className="d-flex justify-content-center align-items-center TwClickable me-3"
+                    onClick={() => {
+                      dispatch({
+                        type: "ADD_TO_CART",
+                        payload: beatSelected,
+                      });
+                    }}
+                  >
                     <IoMdAddCircle></IoMdAddCircle>
                   </div>
                 </div>

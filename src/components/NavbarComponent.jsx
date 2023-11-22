@@ -4,10 +4,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function NavbarComponent() {
   const location = useLocation();
   // const navigate = useNavigate();
+  const cartLength = useSelector((state) => state.cart.content.length);
 
   return (
     <>
@@ -85,7 +87,8 @@ function NavbarComponent() {
                 variant="outline"
                 className="d-flex justify-content-center align-items-center"
               >
-                <FaShoppingCart></FaShoppingCart>
+                <FaShoppingCart></FaShoppingCart>{" "}
+                <span className="ms-2">{cartLength}</span>
               </Button>
             </Link>
           </Nav>

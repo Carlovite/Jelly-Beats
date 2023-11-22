@@ -7,7 +7,7 @@ import "../src/assets/style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import NotFound from "./components/pages/NotFound";
-import ShoppingCart from "./components/pages/ShoppingCart";
+import ShoppingCartPage from "./components/pages/ShoppingCartPage";
 import UploadPage from "./components/pages/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
 import Details from "./components/pages/Details";
@@ -24,7 +24,7 @@ function App() {
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
           <Route
-            element={<ShoppingCart></ShoppingCart>}
+            element={<ShoppingCartPage></ShoppingCartPage>}
             path="/shopping-cart"
           ></Route>
           <Route element={<NotFound />} path="*" />
