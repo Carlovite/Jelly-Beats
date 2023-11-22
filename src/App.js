@@ -5,12 +5,12 @@ import NavbarComponent from "./components/NavbarComponent";
 import Profile from "./components/Profile";
 import "../src/assets/style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import NotFound from "./components/NotFound";
-import ShoppingCart from "./components/ShoppingCart";
-import UploadPage from "./components/UploadPage";
+import Home from "./components/pages/Home";
+import NotFound from "./components/pages/NotFound";
+import ShoppingCart from "./components/pages/ShoppingCart";
+import UploadPage from "./components/pages/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
-import Details from "./components/Details";
+import Details from "./components/pages/Details";
 
 function App() {
   return (

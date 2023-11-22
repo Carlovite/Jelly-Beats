@@ -20,19 +20,19 @@ function TrackElement(props) {
               alt="Track pic"
               width={90}
               height={90}
-              className="ms-2"
+              className="ms-2 "
               onClick={() => navigate("/details-page")}
             />
             <div className="flex-grow-1 mx-3">
               <div className="d-flex justify-content-between align-items-center">
                 <h3
-                  className="text-start mb-0 mx-2"
+                  className="text-start mb-0 mx-2 TwClickable"
                   onClick={() => navigate("/details-page")}
                 >
                   {r.title}
                 </h3>
                 <p
-                  className="m-0 mx-2"
+                  className="m-0 mx-2 TwClickable"
                   onClick={() => navigate("/artist-page")}
                 >
                   {r.artist}

@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { database } from "../Indexfirebase";
+import { database } from "../../Indexfirebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";

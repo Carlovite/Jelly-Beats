@@ -1,6 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap";
-import AsideComponent from "../components/AsideComponent";
-import CarouselComponent from "./CarouselComponent";
+import AsideComponent from "../AsideComponent";
+import CarouselComponent from "../CarouselComponent";
 
 const Home = () => {
   return (
