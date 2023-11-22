@@ -1,4 +1,3 @@
-import { Button } from "react-bootstrap";
 import { IoMdPause } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
@@ -43,30 +42,18 @@ function TrackElement(props) {
               </div>
               <div className="d-flex justify-content-between">
                 <div className="d-flex flex-row">
-                  <Button
-                    variant="black"
-                    className=" text-light d-flex justify-content-center align-items-center"
-                  >
+                  <div className="d-flex justify-content-center align-items-center TwClickable mx-3">
                     <IoMdPlayCircle></IoMdPlayCircle>
-                  </Button>
-                  <Button
-                    variant="black"
-                    className=" text-light d-flex justify-content-center align-items-center"
-                  >
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <IoMdPause></IoMdPause>
-                  </Button>
-                  <Button
-                    variant="black"
-                    className=" text-light d-flex justify-content-center align-items-center"
-                  >
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <FaHeart></FaHeart>
-                  </Button>
-                  <Button
-                    variant="black"
-                    className=" text-light d-flex justify-content-center align-items-center"
-                  >
+                  </div>
+                  <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <IoMdAddCircle></IoMdAddCircle>
-                  </Button>
+                  </div>
                 </div>
                 <div className="w-25 me-2">{/* <Player></Player> */}</div>
               </div>

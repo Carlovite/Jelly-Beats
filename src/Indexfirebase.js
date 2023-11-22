@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -15,15 +16,4 @@ initializeApp(firebaseConfig);
 
 const database = getFirestore();
 export { database };
-
-// getDocs(collectionRef)
-//   .then((snapshot) => {
-//     let beats = [];
-//     snapshot.docs.forEach((doc) => {
-//       beats.push({ ...doc.data(), id: doc.id });
-//     });
-//     console.log(beats);
-//   })
-//   .catch((err) => {
-//     console.log("Errore:" + err.message);
-//   });
+export const storage = getStorage(initializeApp(firebaseConfig));
