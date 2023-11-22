@@ -1,11 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { database } from "../../Indexfirebase";
+import { database } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../Indexfirebase";
+import { storage } from "../../firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 
@@ -40,7 +40,7 @@ function UploadPage() {
       });
     });
   }, []);
-
+  console.log(imageList);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
