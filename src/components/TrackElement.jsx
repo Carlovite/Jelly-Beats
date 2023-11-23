@@ -58,7 +58,7 @@ function TrackElement(beatSelected) {
                     onClick={() => {
                       dispatch({
                         type: "ADD_TO_CART",
-                        payload: beatSelected,
+                        payload: r,
                       });
                     }}
                   >

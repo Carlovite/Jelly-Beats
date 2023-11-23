@@ -18,6 +18,8 @@ function UploadPage() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [bpm, setBpm] = useState("");
+  const [price, setPrice] = useState("");
+
   const navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
@@ -76,7 +78,7 @@ function UploadPage() {
     <Container>
       <Row className="d-flex justify-content-center">
         <Col md={6} className="my-3">
-          <h2 className="text-white">Upload an item</h2>
+          <h2 className="text-white">Upload a Track</h2>
           <Form className="bg-black text-light" onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="title">
               <Form.Control
@@ -103,6 +105,15 @@ function UploadPage() {
                 required
                 onChange={(e) => setBpm(e.target.value)}
                 value={bpm}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="price">
+              <Form.Control
+                type="number"
+                placeholder="Price"
+                required
+                onChange={(e) => setPrice(e.target.value)}
+                value={price}
               />
             </Form.Group>
 

@@ -13,7 +13,7 @@ const ShoppingCartPage = () => {
           {cart.map((beat, i) => (
             <div
               key={i}
-              className="m-2 d-flex justify-content-start text-white"
+              className="my-2 mx-4 d-flex justify-content-start text-white"
             >
               <Button
                 variant=""
@@ -27,8 +27,8 @@ const ShoppingCartPage = () => {
               >
                 <FaTrash />
               </Button>
-              {/* <img src={beat.imageUrl} alt="beat selected" className="me-2" /> */}
-              <span>{beat.title}</span>
+              <img src={beat.imageUrl} alt="beat selected" className="me-2" />
+              <span className="ms-2">{beat.title}</span>
             </div>
           ))}
         </div>

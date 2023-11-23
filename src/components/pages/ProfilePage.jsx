@@ -1,7 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
-import TrackElement from "../components/TrackElement";
+import TrackElement from "../TrackElement";
 import { useEffect, useState } from "react";
-import { database } from "../firebase";
+import { database } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 const Profile = () => {
   const [beats, setBeats] = useState(null);
