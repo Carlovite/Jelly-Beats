@@ -11,6 +11,7 @@ import ShoppingCartPage from "./components/pages/ShoppingCartPage";
 import UploadPage from "./components/pages/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
 import Details from "./components/pages/Details";
+import TracksPage from "./components/pages/TracksPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route element={<Details></Details>} path="/details-page"></Route>
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
+          <Route element={<TracksPage></TracksPage>} path="/tracks"></Route>
           <Route
             element={<ShoppingCartPage></ShoppingCartPage>}
             path="/shopping-cart"
