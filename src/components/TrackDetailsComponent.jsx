@@ -5,7 +5,7 @@ import { IoMdAddCircle } from "react-icons/io";
 function TrackDetailsComponent() {
   return (
     <>
-      <div className="d-flex flex-column bg-dark text-light rounded p-4">
+      <div className="d-flex flex-column bg-dark text-light rounded mx-3 p-4">
         <div className="d-flex justify-content-center mb-3">
           <img
             src="https://placedog.net/500"

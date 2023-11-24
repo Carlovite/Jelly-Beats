@@ -7,14 +7,15 @@ const ShoppingCartPage = () => {
   const dispatch = useDispatch();
   console.log(cart);
   return (
-    <Container>
+    <Container className="my-5">
       <Row>
-        <Col sm={12} className=" mx-4 my-4">
+        <Col sm={12} className="  my-4">
+          <h1 className="text-white text-center mb-3">SHOPPING-CART</h1>
           <div className="text-white">
             {cart.map((beat, i) => (
               <div
                 key={i}
-                className="my-2 mx-4 d-flex justify-content-start text-white"
+                className="my-2 d-flex justify-content-start text-white"
               >
                 <Button
                   variant=""

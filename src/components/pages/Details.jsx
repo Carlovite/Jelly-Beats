@@ -4,7 +4,7 @@ import TrackDetailsComponent from "../TrackDetailsComponent";
 function Details() {
   return (
     <>
-      <Container>
+      <Container className="my-5">
         <Row>
           <Col md={4}>
             <TrackDetailsComponent></TrackDetailsComponent>

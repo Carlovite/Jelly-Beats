@@ -16,19 +16,22 @@ function NavbarMobile() {
 
   return (
     <>
-      <Navbar className="sticky-bottom d-md-none" data-bs-theme="dark">
+      <Navbar
+        className="fixed-bottom d-md-none bg-black pb-0"
+        data-bs-theme="dark"
+      >
         <Nav
           data-bs-theme="dark"
           className=" d-flex  my-2 w-100 align-items-center justify-content-evenly navlink"
         >
-          <Link
+          {/* <Link
             to="/"
             className={
               location.pathname === "/" ? "nav-link  active " : "nav-link  "
             }
           >
             <HiHome></HiHome>
-          </Link>
+          </Link> */}
           <Link
             to="/search"
             className={

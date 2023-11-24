@@ -1,19 +1,29 @@
 import { Container, Navbar } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 
 const LogoComponent = () => {
+  const location = useLocation();
   return (
-    <Navbar className="text-white sticky-top d-md-none" data-bs-theme="dark">
+    <Navbar
+      className="text-white bg-black px-3 fixed-top d-md-none"
+      data-bs-theme="dark"
+    >
       <Container>
-        <Navbar.Brand href="#home">
+        <Link
+          to="/"
+          className={
+            location.pathname === "/" ? "nav-link  active " : "nav-link  "
+          }
+        >
           <img
             alt=""
-            src="/img/logo.svg"
+            src="https://placedog.net/80/100"
             width="30"
             height="30"
             className="d-inline-block align-top"
           />{" "}
-          React Bootstrap
-        </Navbar.Brand>
+          Alpha-beat
+        </Link>
       </Container>
     </Navbar>
   );

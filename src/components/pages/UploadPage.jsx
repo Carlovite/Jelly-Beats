@@ -75,7 +75,7 @@ function UploadPage() {
   //     setUploadedFileName(inputRef.current.files[0].name);
   // };
   return (
-    <Container className="my-3">
+    <Container className="my-5">
       <Row className="d-flex justify-content-center">
         <Col md={6} className="my-3">
           <h2 className="text-white">Upload a Track</h2>
@@ -123,13 +123,17 @@ function UploadPage() {
             <div>
               <input
                 type="file"
+                className="my-2"
                 onChange={(e) => {
                   setImageUpload(e.target.files[0]);
                 }}
               ></input>
-              <Button onClick={uploadImage}> Upload file</Button>
+              <Button onClick={uploadImage} className="my-2">
+                {" "}
+                Upload file
+              </Button>
             </div>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="my-2">
               Send
             </Button>
           </Form>
