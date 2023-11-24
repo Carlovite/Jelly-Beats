@@ -19,7 +19,6 @@ const TracksPage = () => {
   return (
     <>
       <Container className="my-5">
-        <h1 className="text-center text-white ">TRACKS</h1>
         <Row className="my-2 d-flex justify-content-center">
           <Col md={8}>{beats && <TrackElement beats={beats} />}</Col>
         </Row>

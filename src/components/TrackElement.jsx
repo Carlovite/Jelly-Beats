@@ -4,6 +4,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/actions";
 
 function TrackElement(beatSelected) {
   const navigate = useNavigate();
@@ -56,10 +57,7 @@ function TrackElement(beatSelected) {
                   <div
                     className="d-flex justify-content-center align-items-center TwClickable me-3"
                     onClick={() => {
-                      dispatch({
-                        type: "ADD_TO_CART",
-                        payload: r,
-                      });
+                      dispatch(addToCart(r));
                     }}
                   >
                     <IoMdAddCircle></IoMdAddCircle>

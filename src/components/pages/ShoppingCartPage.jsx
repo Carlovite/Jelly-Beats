@@ -1,6 +1,7 @@
 import { Col, Row, Button, Container } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../../redux/actions";
 
 const ShoppingCartPage = () => {
   const cart = useSelector((state) => state.cart.content);
@@ -20,10 +21,7 @@ const ShoppingCartPage = () => {
                 <Button
                   variant=""
                   onClick={() => {
-                    dispatch({
-                      type: "REMOVE_FROM_CART",
-                      payload: i,
-                    });
+                    dispatch(removeFromCart(i));
                   }}
                   className="d-flex justify-content-center align-items-center TwClickable"
                 >

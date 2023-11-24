@@ -5,6 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import CartIndicator from "./CartIndicator";
 
 function NavbarComponent() {
   const location = useLocation();
@@ -82,15 +83,7 @@ function NavbarComponent() {
           </div>
 
           <Nav className="">
-            <Link to="/shopping-cart" className="nav-link">
-              <Button
-                variant="outline"
-                className="d-flex justify-content-center align-items-center"
-              >
-                <FaShoppingCart></FaShoppingCart>{" "}
-                <span className="ms-2">{cartLength}</span>
-              </Button>
-            </Link>
+            <CartIndicator></CartIndicator>
           </Nav>
         </div>
       </Navbar>
