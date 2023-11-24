@@ -18,7 +18,7 @@ const TracksPage = () => {
   }, []);
   return (
     <>
-      <Container>
+      <Container className="my-3">
         <Row className="my-3 d-flex justify-content-center">
           <Col md={8}>{beats && <TrackElement beats={beats} />}</Col>
         </Row>

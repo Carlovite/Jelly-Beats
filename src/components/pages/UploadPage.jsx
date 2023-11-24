@@ -75,7 +75,7 @@ function UploadPage() {
   //     setUploadedFileName(inputRef.current.files[0].name);
   // };
   return (
-    <Container>
+    <Container className="my-3">
       <Row className="d-flex justify-content-center">
         <Col md={6} className="my-3">
           <h2 className="text-white">Upload a Track</h2>

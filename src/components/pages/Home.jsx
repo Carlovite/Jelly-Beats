@@ -4,7 +4,7 @@ import CarouselComponent from "../CarouselComponent";
 
 const Home = () => {
   return (
-    <Container>
+    <Container className="my-3">
       <Row className="d-flex">
         <Col sm={12} md={8} className="mb-3">
           <CarouselComponent></CarouselComponent>

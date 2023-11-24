@@ -12,13 +12,16 @@ import UploadPage from "./components/pages/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
 import Details from "./components/pages/Details";
 import TracksPage from "./components/pages/TracksPage";
+import LogoComponent from "./components/LogoComponent";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="bg-black">
         <NavbarComponent></NavbarComponent>
-        <NavbarMobile></NavbarMobile>
+
+        <LogoComponent></LogoComponent>
+
         <Routes>
           <Route element={<Home></Home>} path="/"></Route>
           <Route element={<Details></Details>} path="/details-page"></Route>
@@ -31,6 +34,7 @@ function App() {
           ></Route>
           <Route element={<NotFound />} path="*" />
         </Routes>
+        <NavbarMobile></NavbarMobile>
         {/* <footer className="text-center fixed-bottom mb-3 text-secondary">
           BEATS {new Date().getFullYear()}
         </footer> */}
