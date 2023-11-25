@@ -14,7 +14,11 @@ const LogInPage = () => {
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
-                dispatch(setUsername(inputValue));
+                if (inputValue.trim() !== "") {
+                  dispatch(setUsername(inputValue));
+                } else {
+                  console.log("Please enter a valid username!");
+                }
               }}
             >
               <Form.Control

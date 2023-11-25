@@ -26,7 +26,9 @@ const CartIndicator = () => {
         <Link
           to="/login"
           className={
-            location.pathname === "/login" ? "nav-link  active " : "nav-link  "
+            location.pathname === "/login"
+              ? "nav-link login active "
+              : "nav-link login "
           }
         >
           <span className="me-2 d-none d-md-inline">Log in</span>

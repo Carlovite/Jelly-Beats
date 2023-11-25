@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { storage } from "../../firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
+import { useSelector } from "react-redux";
 
 function UploadPage() {
   // const [uploadedFileName, setUploadedFileName] = useState(null);
@@ -56,87 +57,76 @@ function UploadPage() {
       console.log(err);
     }
   };
-
-  // const handleAdd = (e) => {
-  //   e.preventDefault();
-  //   const ing = newBeat.trim();
-  //   if (ing && !beats.includes(ing)) {
-  //     setBeats((prevBeats) => [...prevBeats, ing]);
-  //   }
-  //   setNewBeat("");
-  //   beatInput.current.focus();
-  // };
-
-  // const handleUpload = () => {
-  //   inputRef.current?.click();
-  // };
-  // const handleDisplayFileDetails = () => {
-  //   inputRef.current?.files &&
-  //     setUploadedFileName(inputRef.current.files[0].name);
-  // };
+  const userInfo = useSelector((state) => state.user.username);
   return (
     <Container className="my-5">
       <Row className="d-flex justify-content-center">
-        <Col md={6} className="my-3">
-          <h2 className="text-white">Upload a Track</h2>
-          <Form className="bg-black text-light" onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="title">
-              <Form.Control
-                type="text"
-                placeholder="Title"
-                required
-                onChange={(e) => setTitle(e.target.value)}
-                value={title}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="artist">
-              <Form.Control
-                type="text"
-                placeholder="Artist"
-                required
-                onChange={(e) => setArtist(e.target.value)}
-                value={artist}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="bpm">
-              <Form.Control
-                type="number"
-                placeholder="BPM"
-                required
-                onChange={(e) => setBpm(e.target.value)}
-                value={bpm}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="price">
-              <Form.Control
-                type="number"
-                placeholder="Price"
-                required
-                onChange={(e) => setPrice(e.target.value)}
-                value={price}
-              />
-            </Form.Group>
+        <Col md={6} className="">
+          {userInfo ? (
+            <>
+              <h2 className="text-white">Upload a Track</h2>
+              <Form className="bg-black text-light" onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="title">
+                  <Form.Control
+                    type="text"
+                    placeholder="Title"
+                    required
+                    onChange={(e) => setTitle(e.target.value)}
+                    value={title}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="artist">
+                  <Form.Control
+                    type="text"
+                    placeholder="Artist"
+                    required
+                    onChange={(e) => setArtist(e.target.value)}
+                    value={artist}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="bpm">
+                  <Form.Control
+                    type="number"
+                    placeholder="BPM"
+                    required
+                    onChange={(e) => setBpm(e.target.value)}
+                    value={bpm}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="price">
+                  <Form.Control
+                    type="number"
+                    placeholder="Price"
+                    required
+                    onChange={(e) => setPrice(e.target.value)}
+                    value={price}
+                  />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="description">
-              <Form.Control type="text-area" placeholder="Description" />
-            </Form.Group>
-            <div>
-              <input
-                type="file"
-                className="my-2"
-                onChange={(e) => {
-                  setImageUpload(e.target.files[0]);
-                }}
-              ></input>
-              <Button onClick={uploadImage} className="my-2">
-                {" "}
-                Upload file
-              </Button>
-            </div>
-            <Button variant="primary" type="submit" className="my-2">
-              Send
-            </Button>
-          </Form>
+                <Form.Group className="mb-3" controlId="description">
+                  <Form.Control type="text-area" placeholder="Description" />
+                </Form.Group>
+                <div>
+                  <input
+                    type="file"
+                    className="my-2"
+                    onChange={(e) => {
+                      setImageUpload(e.target.files[0]);
+                    }}
+                  ></input>
+                  <Button onClick={uploadImage} className="my-2">
+                    {" "}
+                    Upload file
+                  </Button>
+                </div>
+                <Button variant="primary" type="submit" className="my-2">
+                  Send
+                </Button>
+              </Form>
+            </>
+          ) : (
+            <h2 className="text-center text-white">You must Log in first!</h2>
+          )}
         </Col>
       </Row>
     </Container>
