@@ -3,12 +3,13 @@ import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/actions";
 
 function TrackElement(beatSelected) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.username);
   return (
     <>
       {beatSelected.beats.map((r) => {
@@ -54,14 +55,20 @@ function TrackElement(beatSelected) {
                   <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <FaHeart></FaHeart>
                   </div>
-                  <div
-                    className="d-flex justify-content-center align-items-center TwClickable me-3"
-                    onClick={() => {
-                      dispatch(addToCart(r));
-                    }}
-                  >
-                    <IoMdAddCircle></IoMdAddCircle>
-                  </div>
+                  {userInfo ? (
+                    <div
+                      className="d-flex justify-content-center align-items-center TwClickable me-3"
+                      onClick={() => {
+                        dispatch(addToCart(r));
+                      }}
+                    >
+                      <IoMdAddCircle></IoMdAddCircle>
+                    </div>
+                  ) : (
+                    <div className="d-flex justify-content-center align-items-center lessImportant me-3">
+                      <IoMdAddCircle></IoMdAddCircle>
+                    </div>
+                  )}
                 </div>
                 <div className="w-25 me-2">{/* <Player></Player> */}</div>
               </div>

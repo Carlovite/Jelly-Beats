@@ -1,17 +1,18 @@
 import { Button, Form } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { FaShoppingCart } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { BsArrowLeftSquareFill } from "react-icons/bs";
 import CartIndicator from "./CartIndicator";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogOut } from "../redux/actions";
 
 function NavbarComponent() {
   const location = useLocation();
   // const navigate = useNavigate();
-  const cartLength = useSelector((state) => state.cart.content.length);
-
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.username);
   return (
     <>
       <Navbar
@@ -84,6 +85,19 @@ function NavbarComponent() {
 
           <Nav className="">
             <CartIndicator></CartIndicator>
+            {userInfo ? (
+              <div
+                className="d-flex justify-content-center align-items-center logout me-3"
+                onClick={() => {
+                  dispatch(setLogOut());
+                }}
+              >
+                <span className="mx-2">Log Out</span>
+                <BsArrowLeftSquareFill></BsArrowLeftSquareFill>
+              </div>
+            ) : (
+              <></>
+            )}
           </Nav>
         </div>
       </Navbar>

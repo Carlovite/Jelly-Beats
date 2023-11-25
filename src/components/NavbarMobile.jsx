@@ -6,10 +6,15 @@ import { MdAccountCircle } from "react-icons/md";
 import { MdUpload } from "react-icons/md";
 import { Navbar } from "react-bootstrap";
 import CartIndicator from "./CartIndicator";
+import { BsArrowLeftSquareFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { setLogOut } from "../redux/actions";
 
 function NavbarMobile() {
   const location = useLocation();
   // const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user.username);
 
   return (
     <>
@@ -62,6 +67,18 @@ function NavbarMobile() {
             <MdAccountCircle></MdAccountCircle>
           </Link>
           <CartIndicator></CartIndicator>
+          {userInfo ? (
+            <div
+              className="d-flex justify-content-center align-items-center logout me-3"
+              onClick={() => {
+                dispatch(setLogOut());
+              }}
+            >
+              <BsArrowLeftSquareFill></BsArrowLeftSquareFill>
+            </div>
+          ) : (
+            <></>
+          )}
         </Nav>
       </Navbar>
 

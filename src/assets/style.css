@@ -41,3 +41,9 @@ body {
 .lessImportant {
   color: #a9a9a9;
 }
+.logout {
+  color: #a9a9a9;
+}
+.logout:hover {
+  color: darkred;
+}

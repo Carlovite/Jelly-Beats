@@ -1,4 +1,4 @@
-import { IoLogIn } from "react-icons/io5";
+import { BsArrowRightSquareFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -7,6 +7,7 @@ const CartIndicator = () => {
   const cartLength = useSelector((state) => state.cart.content.length);
   const location = useLocation();
   const userInfo = useSelector((state) => state.user.username);
+
   return (
     <div>
       {userInfo ? (
@@ -29,7 +30,7 @@ const CartIndicator = () => {
           }
         >
           <span className="me-2 d-none d-md-inline">Log in</span>
-          <IoLogIn></IoLogIn>
+          <BsArrowRightSquareFill></BsArrowRightSquareFill>
         </Link>
       )}
     </div>

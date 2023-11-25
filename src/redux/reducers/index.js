@@ -1,4 +1,9 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions";
+import {
+  ADD_TO_CART,
+  LOG_OUT,
+  REMOVE_FROM_CART,
+  SET_USERNAME,
+} from "../actions";
 
 const initialState = {
   cart: {
@@ -27,6 +32,23 @@ const mainReducer = (state = initialState, action) => {
           content: state.cart.content.filter((beat, i) => i !== action.payload),
         },
       };
+    case SET_USERNAME:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          username: action.payload,
+        },
+      };
+    case LOG_OUT:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          username: "",
+        },
+      };
+
     default:
       return state;
   }
