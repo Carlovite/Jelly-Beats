@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, deleteDoc } from "firebase/firestore";
 import { database } from "../../firebase";
 
 export const ADD_TO_CART = "ADD_TO_CART";
@@ -6,6 +6,7 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const SET_USERNAME = "SET_USERNAME";
 export const LOG_OUT = "LOG_OUT";
 export const GET_DATA = "GET_DATA";
+export const DELETE_DATA = "DELETE_DATA";
 
 export const addToCart = (r) => {
   return {
@@ -48,6 +49,16 @@ export const getBeats = () => {
       } else {
         console.log("errore");
       }
+    });
+  };
+};
+
+export const deleteElement = (id) => {
+  return async (dispatch) => {
+    const ref = doc(database, "beats", id);
+    await deleteDoc(ref);
+    dispatch({
+      type: DELETE_DATA,
     });
   };
 };

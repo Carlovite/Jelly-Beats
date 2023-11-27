@@ -4,7 +4,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/actions";
+import { addToCart, deleteElement } from "../redux/actions";
 
 function TrackElement(beatSelected) {
   const navigate = useNavigate();
@@ -52,7 +52,13 @@ function TrackElement(beatSelected) {
                   <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                     <IoMdPause></IoMdPause>
                   </div>
-                  <div className="d-flex justify-content-center align-items-center TwClickable me-3">
+                  <div
+                    className="d-flex justify-content-center align-items-center TwClickable me-3"
+                    onClick={() => {
+                      dispatch(deleteElement(r.id));
+                      // navigate(0);
+                    }}
+                  >
                     <FaHeart></FaHeart>
                   </div>
                   {userInfo ? (
