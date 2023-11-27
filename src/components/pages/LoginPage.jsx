@@ -7,6 +7,7 @@ import { signInUser } from "../../redux/actions";
 const LogInPage = () => {
   const dispatch = useDispatch();
   const authError = useSelector((state) => state.user.authError);
+
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -20,15 +21,17 @@ const LogInPage = () => {
           <h2 className="text-center text-white mb-3">
             Login to start Shopping!
           </h2>
-          <Col sm={8}>
+          <Col sm={6}>
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
                 dispatch(signInUser(userData));
                 navigate("/");
+                console.log(userData);
               }}
             >
               <Form.Control
+                className="m-2"
                 placeholder="email"
                 type="email"
                 value={userData.email}
@@ -37,6 +40,7 @@ const LogInPage = () => {
                 }
               ></Form.Control>
               <Form.Control
+                className="m-2"
                 placeholder="password"
                 type="password"
                 value={userData.password}
@@ -44,9 +48,11 @@ const LogInPage = () => {
                   setUserData({ ...userData, password: e.target.value })
                 }
               ></Form.Control>
-              <Button type="submit">Log In</Button>
+              <Button className="m-2" type="submit">
+                Log In
+              </Button>
             </Form>
-            {authError && <p>{authError}</p>}
+            {authError && <p className="text-center text-white">{authError}</p>}
           </Col>
         </Row>
       </Container>

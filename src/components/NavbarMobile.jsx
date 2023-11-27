@@ -14,7 +14,7 @@ function NavbarMobile() {
   const location = useLocation();
   // const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userInfo = useSelector((state) => state.user.username);
+  const userInfo = useSelector((state) => state.user.userEmail);
 
   return (
     <>

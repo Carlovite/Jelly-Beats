@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const ShoppingCartPage = () => {
   const cart = useSelector((state) => state.cart.content);
-  const IsUserLoggedIn = useSelector((state) => state.user.username);
+  const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(cart);

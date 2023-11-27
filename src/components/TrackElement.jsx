@@ -9,7 +9,7 @@ import { addToCart, deleteElement } from "../redux/actions";
 function TrackElement(beatSelected) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userInfo = useSelector((state) => state.user.username);
+  const userInfo = useSelector((state) => state.user.userEmail);
   return (
     <>
       {beatSelected.beats.map((r) => {
@@ -46,7 +46,10 @@ function TrackElement(beatSelected) {
               </div>
               <div className="d-flex justify-content-between">
                 <div className="d-flex flex-row">
-                  <div className="d-flex justify-content-center align-items-center TwClickable mx-3">
+                  <div
+                    className="d-flex justify-content-center align-items-center TwClickable mx-3"
+                    // onClick={console.log(userInfo)}
+                  >
                     <IoMdPlayCircle></IoMdPlayCircle>
                   </div>
                   <div className="d-flex justify-content-center align-items-center TwClickable me-3">

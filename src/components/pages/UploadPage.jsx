@@ -15,7 +15,7 @@ function UploadPage() {
   const [artist, setArtist] = useState("");
   const [bpm, setBpm] = useState("");
   const [price, setPrice] = useState("");
-  const IsUserLoggedIn = useSelector((state) => state.user.username);
+  const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
@@ -44,7 +44,7 @@ function UploadPage() {
     }
   }, []);
 
-  console.log(imageList);
+  // console.log(imageList);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,12 +59,12 @@ function UploadPage() {
       console.log(err);
     }
   };
-  const userInfo = useSelector((state) => state.user.username);
+  // const userInfo = useSelector((state) => state.user.authError);
   return (
     <Container className="my-5">
       <Row className="d-flex justify-content-center">
         <Col md={6} className="">
-          {userInfo ? (
+          {IsUserLoggedIn ? (
             <>
               <h2 className="text-white">Upload a Track</h2>
               <Form className="bg-black text-light" onSubmit={handleSubmit}>

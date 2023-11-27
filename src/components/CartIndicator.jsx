@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 const CartIndicator = () => {
   const cartLength = useSelector((state) => state.cart.content.length);
   const location = useLocation();
-  const userInfo = useSelector((state) => state.user.username);
+  const userInfo = useSelector((state) => state.user.userEmail);
 
   return (
     <div>

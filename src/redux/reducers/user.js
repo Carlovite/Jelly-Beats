@@ -2,6 +2,7 @@ import { SIGN_IN } from "../actions";
 
 const initialState = {
   authError: null,
+  userEmail: "",
 };
 
 const userReducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         authError: null,
+        userEmail: action.payload,
       };
     case "SIGN_IN_ERROR":
       console.error("Errore durante l'accesso:", action.payload);

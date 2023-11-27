@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const userInfo = useSelector((state) => state.user.username);
+  // const userInfo = useSelector((state) => state.user.authError);
   const navigate = useNavigate();
-  const IsUserLoggedIn = useSelector((state) => state.user.username);
+  const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   useEffect(() => {
     if (!IsUserLoggedIn) {
       navigate("/login");
@@ -15,7 +15,7 @@ const Profile = () => {
   return (
     <>
       <Container className="my-5">
-        {userInfo ? (
+        {IsUserLoggedIn ? (
           <Row>
             <p>Componente profilo</p>
           </Row>
