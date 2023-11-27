@@ -3,19 +3,30 @@ import TrackElement from "../TrackElement";
 import { useEffect, useState } from "react";
 import { database } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import { getBeats } from "../../redux/actions";
+
 const TracksPage = () => {
-  const [beats, setBeats] = useState(null);
+  const dispatch = useDispatch();
+  const beats = useSelector((state) => state.beats.stock);
+  // const [beats, setBeats] = useState(null);
+
+  // useEffect(() => {
+  //   const ref = collection(database, "beats");
+  //   getDocs(ref).then((snapshot) => {
+  //     let results = [];
+  //     snapshot.docs.forEach((doc) => {
+  //       results.push({ id: doc.id, ...doc.data() });
+  //     });
+  //     setBeats(results);
+  //     console.log(results);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    const ref = collection(database, "beats");
-    getDocs(ref).then((snapshot) => {
-      let results = [];
-      snapshot.docs.forEach((doc) => {
-        results.push({ id: doc.id, ...doc.data() });
-      });
-      setBeats(results);
-      console.log(results);
-    });
+    dispatch(getBeats());
   }, []);
+
   return (
     <>
       <Container className="my-5">

@@ -11,20 +11,16 @@ import { v4 } from "uuid";
 import { useSelector } from "react-redux";
 
 function UploadPage() {
-  // const [uploadedFileName, setUploadedFileName] = useState(null);
-  // const inputRef = useRef(null);
-  // const [newBeat, setNewBeat] = useState([]);
-  // const [beats, setBeats] = useState([]);
-  // const beatInput = useRef(null);
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [bpm, setBpm] = useState("");
   const [price, setPrice] = useState("");
-
+  const IsUserLoggedIn = useSelector((state) => state.user.username);
   const navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);
   const [imageList, setImageList] = useState([]);
   const imageListRef = ref(storage, "images/");
+
   const uploadImage = () => {
     if (imageUpload === null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
@@ -34,6 +30,7 @@ function UploadPage() {
       });
     });
   };
+
   useEffect(() => {
     listAll(imageListRef).then((r) => {
       r.items.forEach((item) => {
@@ -42,8 +39,13 @@ function UploadPage() {
         });
       });
     });
+    if (!IsUserLoggedIn) {
+      navigate("/login");
+    }
   }, []);
+
   console.log(imageList);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

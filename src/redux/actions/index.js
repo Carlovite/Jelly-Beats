@@ -1,7 +1,11 @@
+import { collection, getDocs } from "firebase/firestore";
+import { database } from "../../firebase";
+
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const SET_USERNAME = "SET_USERNAME";
 export const LOG_OUT = "LOG_OUT";
+export const GET_DATA = "GET_DATA";
 
 export const addToCart = (r) => {
   return {
@@ -25,5 +29,25 @@ export const setUsername = (username) => {
 export const setLogOut = () => {
   return {
     type: LOG_OUT,
+  };
+};
+
+export const getBeats = () => {
+  return async (dispatch) => {
+    const ref = collection(database, "beats");
+    getDocs(ref).then((snapshot) => {
+      let results = [];
+      snapshot.docs.forEach((doc) => {
+        results.push({ id: doc.id, ...doc.data() });
+      });
+      if (results) {
+        dispatch({
+          type: GET_DATA,
+          payload: results,
+        });
+      } else {
+        console.log("errore");
+      }
+    });
   };
 };

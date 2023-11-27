@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const userInfo = useSelector((state) => state.user.username);
+  const navigate = useNavigate();
+  const IsUserLoggedIn = useSelector((state) => state.user.username);
+  useEffect(() => {
+    if (!IsUserLoggedIn) {
+      navigate("/login");
+    }
+  }, [IsUserLoggedIn, navigate]);
   return (
     <>
       <Container className="my-5">

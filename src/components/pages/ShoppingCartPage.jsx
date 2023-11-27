@@ -2,11 +2,21 @@ import { Col, Row, Button, Container } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../redux/actions";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCartPage = () => {
   const cart = useSelector((state) => state.cart.content);
+  const IsUserLoggedIn = useSelector((state) => state.user.username);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   console.log(cart);
+  useEffect(() => {
+    if (!IsUserLoggedIn) {
+      navigate("/");
+    }
+  }, [IsUserLoggedIn, navigate]);
+
   return (
     <Container className="my-5">
       <Row>
