@@ -56,7 +56,6 @@ function TrackElement(beatSelected) {
                     className="d-flex justify-content-center align-items-center TwClickable me-3"
                     onClick={() => {
                       dispatch(deleteElement(r.id));
-                      // navigate(0);
                     }}
                   >
                     <FaHeart></FaHeart>

@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { setUsername } from "../../redux/actions";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { signInUser } from "../../redux/actions";
 
 const LogInPage = () => {
-  const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
+  const authError = useSelector((state) => state.user.authError);
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+  });
   const navigate = useNavigate();
+
   return (
     <>
       <Container className="my-5">
@@ -18,21 +23,30 @@ const LogInPage = () => {
           <Col sm={8}>
             <Form
               onSubmit={(e) => {
-                navigate("/");
                 e.preventDefault();
-                if (inputValue.trim() !== "") {
-                  dispatch(setUsername(inputValue));
-                } else {
-                  console.log("Please enter a valid username!");
-                }
+                dispatch(signInUser(userData));
+                navigate("/");
               }}
             >
               <Form.Control
-                placeholder="user"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                placeholder="email"
+                type="email"
+                value={userData.email}
+                onChange={(e) =>
+                  setUserData({ ...userData, email: e.target.value })
+                }
               ></Form.Control>
+              <Form.Control
+                placeholder="password"
+                type="password"
+                value={userData.password}
+                onChange={(e) =>
+                  setUserData({ ...userData, password: e.target.value })
+                }
+              ></Form.Control>
+              <Button type="submit">Log In</Button>
             </Form>
+            {authError && <p>{authError}</p>}
           </Col>
         </Row>
       </Container>

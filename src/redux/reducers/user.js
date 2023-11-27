@@ -1,24 +1,23 @@
-import { LOG_OUT, SET_USERNAME } from "../actions";
+import { SIGN_IN } from "../actions";
 
 const initialState = {
-  username: "",
+  authError: null,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USERNAME:
+    case SIGN_IN:
+      console.log("Login utente avvenuta con successo");
       return {
         ...state,
-
-        username: action.payload,
+        authError: null,
       };
-    case LOG_OUT:
+    case "SIGN_IN_ERROR":
+      console.error("Errore durante l'accesso:", action.payload);
       return {
         ...state,
-
-        username: "",
+        authError: action.payload,
       };
-
     default:
       return state;
   }
