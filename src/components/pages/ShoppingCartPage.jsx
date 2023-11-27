@@ -49,10 +49,12 @@ const ShoppingCartPage = () => {
             className="fw-bold mb-3 ms-4 text-white d-flex justify-content-center"
           >
             TOTALE:{" "}
-            {cart.reduce(
-              (acc, currentValue) => acc + parseFloat(currentValue.price),
-              0
-            )}
+            {cart
+              .reduce(
+                (acc, currentValue) => acc + parseFloat(currentValue.price),
+                0
+              )
+              .toFixed(2)}
             $
           </Col>
         </Row>
