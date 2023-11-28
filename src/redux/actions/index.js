@@ -6,7 +6,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { auth, database } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -29,17 +29,17 @@ export const removeFromCart = (i) => {
     payload: i,
   };
 };
-export const setUsername = (username) => {
-  return {
-    type: SET_USERNAME,
-    payload: username,
-  };
-};
-export const setLogOut = () => {
-  return {
-    type: LOG_OUT,
-  };
-};
+// export const setUsername = (username) => {
+//   return {
+//     type: SET_USERNAME,
+//     payload: username,
+//   };
+// };
+// export const setLogOut = () => {
+//   return {
+//     type: LOG_OUT,
+//   };
+// };
 
 export const getBeats = () => {
   return async (dispatch) => {
@@ -103,6 +103,23 @@ export const signInUser = (credentials) => {
     } catch (error) {
       dispatch({
         type: "SIGN_IN_ERROR",
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const LogOutUser = () => {
+  return async (dispatch) => {
+    try {
+      await signOut(auth);
+
+      dispatch({
+        type: LOG_OUT,
+      });
+    } catch (error) {
+      dispatch({
+        type: "LOG_OUT_ERROR",
         payload: error.message,
       });
     }

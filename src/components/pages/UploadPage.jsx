@@ -44,7 +44,7 @@ function UploadPage() {
     }
   }, []);
 
-  // console.log(imageList);
+  console.log(imageList);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,7 +59,7 @@ function UploadPage() {
       console.log(err);
     }
   };
-  // const userInfo = useSelector((state) => state.user.authError);
+
   return (
     <Container className="my-5">
       <Row className="d-flex justify-content-center">

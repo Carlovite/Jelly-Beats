@@ -8,7 +8,8 @@ import { Navbar } from "react-bootstrap";
 import CartIndicator from "./CartIndicator";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogOut } from "../redux/actions";
+import { LogOutUser } from "../redux/actions";
+// import { setLogOut } from "../redux/actions";
 
 function NavbarMobile() {
   const location = useLocation();
@@ -71,7 +72,7 @@ function NavbarMobile() {
             <div
               className="d-flex justify-content-center align-items-center logout me-3"
               onClick={() => {
-                dispatch(setLogOut());
+                dispatch(LogOutUser());
               }}
             >
               <BsArrowLeftSquareFill></BsArrowLeftSquareFill>

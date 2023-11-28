@@ -6,7 +6,9 @@ import { Link, useLocation } from "react-router-dom";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import CartIndicator from "./CartIndicator";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogOut } from "../redux/actions";
+// import { setLogOut } from "../redux/actions";
+import Logo from "../assets/Opera_senza_titolo.png";
+import { LogOutUser } from "../redux/actions";
 
 function NavbarComponent() {
   const location = useLocation();
@@ -22,7 +24,7 @@ function NavbarComponent() {
       >
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
           <Link to="/" className="me-5 text-light nav-link">
-            LOGO
+            <img src={Logo} alt="logo" width={50} height={50}></img>
           </Link>
           <div className="d-flex">
             <Form className="d-flex">
@@ -89,7 +91,7 @@ function NavbarComponent() {
               <div
                 className="d-flex justify-content-center align-items-center logout me-3"
                 onClick={() => {
-                  dispatch(setLogOut());
+                  dispatch(LogOutUser());
                 }}
               >
                 <span className="mx-2">Log Out</span>

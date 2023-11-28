@@ -26,8 +26,10 @@ const LogInPage = () => {
               onSubmit={(e) => {
                 e.preventDefault();
                 dispatch(signInUser(userData));
-                navigate("/");
-                console.log(userData);
+                if (!authError) {
+                  navigate("/");
+                  console.log(userData);
+                }
               }}
             >
               <Form.Control

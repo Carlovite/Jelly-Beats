@@ -1,4 +1,4 @@
-import { SIGN_IN } from "../actions";
+import { LOG_OUT, SIGN_IN } from "../actions";
 
 const initialState = {
   authError: null,
@@ -14,8 +14,21 @@ const userReducer = (state = initialState, action) => {
         authError: null,
         userEmail: action.payload,
       };
+    case LOG_OUT:
+      console.log("Logout utente avvenuta con successo");
+      return {
+        ...state,
+        authError: null,
+        userEmail: "",
+      };
     case "SIGN_IN_ERROR":
       console.error("Errore durante l'accesso:", action.payload);
+      return {
+        ...state,
+        authError: action.payload,
+      };
+    case "LOG_OUT_ERROR":
+      console.error("Errore durante il logout:", action.payload);
       return {
         ...state,
         authError: action.payload,
