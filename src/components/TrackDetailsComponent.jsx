@@ -1,8 +1,21 @@
 import { Button } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle } from "react-icons/io";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function TrackDetailsComponent() {
+  const params = useParams();
+
+  const tracks = useSelector((state) => state.beats.stock);
+
+  const [filtered, setFiltered] = useState([]);
+  useEffect(() => {
+    let filteredBeat = tracks.filter((beat) => beat.id === params.id);
+    setFiltered(filteredBeat[0]);
+  }, []);
+  console.log(filtered);
   return (
     <>
       <div className="d-flex flex-column bg-dark text-light rounded mx-3 p-4">
@@ -14,8 +27,8 @@ function TrackDetailsComponent() {
             height={200}
           ></img>
         </div>
-        <h3 className="text-center TwClickable">Track Title</h3>
-        <p className="Fs8 text-center TwClickable">Artist name</p>
+        <h3 className="text-center TwClickable">{filtered.title}</h3>
+        <p className="Fs8 text-center TwClickable">{filtered.artist}</p>
         <div className="d-flex align-items-center justify-content-between w-100  px-3 mb-2">
           <div className="d-flex align-items-center">
             <span>Like</span>
@@ -38,7 +51,7 @@ function TrackDetailsComponent() {
         </div>
         <div className="d-flex mx-3 align-items-center justify-content-between">
           <span className=" Fs8 mb-2">BPM:</span>
-          <span className="lessImportant Fs8 mb-2"> ciao </span>
+          <span className="lessImportant Fs8 mb-2"> {filtered.bpm} </span>
         </div>
         <div className="d-flex mx-3 align-items-center justify-content-between">
           <span className=" Fs8 mb-2">Key:</span>

@@ -42,9 +42,8 @@ function UploadPage() {
     if (!IsUserLoggedIn) {
       navigate("/login");
     }
+    console.log(imageList);
   }, []);
-
-  console.log(imageList);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
