@@ -15,10 +15,10 @@ function TrackDetailsComponent() {
     let filteredBeat = tracks.filter((beat) => beat.id === params.id);
     setFiltered(filteredBeat[0]);
   }, []);
-  console.log(filtered);
+
   return (
     <>
-      <div className="d-flex flex-column bg-dark text-light rounded mx-3 p-4">
+      <div className="d-flex flex-column bg-dark text-light rounded mx-3 p-4 ombra ">
         <div className="d-flex justify-content-center mb-3">
           <img
             src="https://placedog.net/500"

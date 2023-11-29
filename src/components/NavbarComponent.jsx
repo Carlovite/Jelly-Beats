@@ -18,9 +18,9 @@ function NavbarComponent() {
   return (
     <>
       <Navbar
-        bg="black"
+        // bg="black"
         data-bs-theme="dark"
-        className="border-bottom d-none d-md-flex sticky-top"
+        className="border-bottom d-none d-md-flex sticky-top bg-scuro"
       >
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
           <Link to="/" className="me-5 text-light nav-link">

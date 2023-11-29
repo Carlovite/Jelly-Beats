@@ -14,11 +14,12 @@ import Details from "./components/pages/Details";
 import TracksPage from "./components/pages/TracksPage";
 import LogoComponent from "./components/LogoComponent";
 import LogInPage from "./components/pages/LoginPage";
+import FooterComponent from "./components/FooterComponent";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-black">
+      <div className="box-page">
         <NavbarComponent></NavbarComponent>
 
         <LogoComponent></LogoComponent>
@@ -37,9 +38,7 @@ function App() {
           <Route element={<NotFound />} path="*" />
         </Routes>
         <NavbarMobile></NavbarMobile>
-        {/* <footer className="text-center fixed-bottom mb-3 text-secondary">
-          BEATS {new Date().getFullYear()}
-        </footer> */}
+        <FooterComponent></FooterComponent>
       </div>
     </BrowserRouter>
   );

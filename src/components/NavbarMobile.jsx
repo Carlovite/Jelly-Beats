@@ -20,7 +20,7 @@ function NavbarMobile() {
   return (
     <>
       <Navbar
-        className="fixed-bottom d-md-none bg-black pb-0"
+        className="fixed-bottom d-md-none bg-scuro pb-0"
         data-bs-theme="dark"
       >
         <Nav
