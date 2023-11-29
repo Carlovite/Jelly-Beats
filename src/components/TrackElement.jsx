@@ -19,7 +19,7 @@ function TrackElement(beatSelected) {
             key={r.id}
           >
             <img
-              src="https://placedog.net/100/100"
+              src={r.url ? r.url : "https://placedog.net/500"}
               alt="Track pic"
               width={90}
               height={90}

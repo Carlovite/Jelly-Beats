@@ -24,7 +24,7 @@ const LogoComponent = () => {
               height="40"
               className="d-inline-block align-top"
             />{" "}
-            <p className="mb-0 mx-2">Alpha-beat</p>
+            <p className="mb-0 mx-2 logoTitle">Alpha-beat</p>
           </div>
         </Link>
       </Container>

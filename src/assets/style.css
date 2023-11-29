@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap");
 body {
   width: 100%;
   height: 100vh;
@@ -6,6 +7,8 @@ body {
   position: relative;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.1rem;
 }
 
 body:before {
@@ -85,4 +88,8 @@ body:before {
   right: 0px;
   bottom: 0px;
   left: 0px;
+}
+.logoTitle {
+  font-size: 1.6rem;
+  font-weight: bold;
 }

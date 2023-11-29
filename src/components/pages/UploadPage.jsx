@@ -5,45 +5,81 @@ import { database } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { storage } from "../../firebase";
-import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-import { v4 } from "uuid";
 import { useSelector } from "react-redux";
+import { storage } from "../../firebase";
+import {
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+  listAll,
+} from "firebase/storage";
 
 function UploadPage() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [bpm, setBpm] = useState("");
   const [price, setPrice] = useState("");
+  const [imgUrl, setImgUrl] = useState([]);
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
-  const [imageUpload, setImageUpload] = useState(null);
-  const [imageList, setImageList] = useState([]);
-  const imageListRef = ref(storage, "images/");
 
-  const uploadImage = () => {
-    if (imageUpload === null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageList((prev) => [...prev, url]);
-      });
-    });
+  const [file, setFile] = useState("");
+
+  const [url, setUrl] = useState("");
+
+  // progress
+  const [percent, setPercent] = useState(0);
+
+  // Handle file upload event and update state
+  function handleChange(event) {
+    setFile(event.target.files[0]);
+  }
+
+  const handleUpload = () => {
+    if (!file) {
+      alert("Please upload an image first!");
+    }
+
+    const storageRef = ref(storage, `/files/${file.name}`);
+
+    // progress can be paused and resumed. It also exposes progress updates.
+    // Receives the storage reference and the file to upload.
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          // console.log(url);
+        });
+      }
+    );
   };
 
   useEffect(() => {
-    listAll(imageListRef).then((r) => {
-      r.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageList((prev) => [...prev, url]);
+    listAll(ref(storage, "files")).then((imgs) => {
+      console.log(imgs);
+      imgs.items.forEach((val) => {
+        getDownloadURL(val).then((url) => {
+          setImgUrl((data) => [...data, url]);
         });
       });
     });
     if (!IsUserLoggedIn) {
       navigate("/login");
     }
-    console.log(imageList);
   }, []);
+  console.log(imgUrl);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,6 +88,8 @@ function UploadPage() {
         title: title,
         artist: artist,
         bpm: bpm,
+        price: price,
+        url: url,
       });
       navigate("/profile");
     } catch (err) {
@@ -66,7 +104,7 @@ function UploadPage() {
           {IsUserLoggedIn ? (
             <>
               <h2 className="text-white">Upload a Track</h2>
-              <Form className="bg-black text-light" onSubmit={handleSubmit}>
+              <Form className=" text-light" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                   <Form.Control
                     type="text"
@@ -104,22 +142,25 @@ function UploadPage() {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="description">
-                  <Form.Control type="text-area" placeholder="Description" />
-                </Form.Group>
                 <div>
                   <input
                     type="file"
-                    className="my-2"
-                    onChange={(e) => {
-                      setImageUpload(e.target.files[0]);
-                    }}
-                  ></input>
-                  <Button onClick={uploadImage} className="my-2">
-                    {" "}
-                    Upload file
-                  </Button>
+                    onChange={handleChange}
+                    accept="/image/*"
+                  />
+                  <Button onClick={handleUpload}>Upload to Firebase</Button>
+                  <p>{percent} "% done"</p>
                 </div>
+                <Form.Group className="mb-3" controlId="url">
+                  <Form.Control
+                    type="string"
+                    placeholder="Image url"
+                    required
+                    onChange={() => setUrl(imgUrl)}
+                    value={url}
+                  />
+                </Form.Group>
+
                 <Button variant="primary" type="submit" className="my-2">
                   Send
                 </Button>
