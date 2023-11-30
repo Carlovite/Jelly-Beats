@@ -20,6 +20,7 @@ function UploadPage() {
   const [bpm, setBpm] = useState("");
   const [price, setPrice] = useState("");
   const [imgUrl, setImgUrl] = useState([]);
+
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
 
@@ -154,7 +155,7 @@ function UploadPage() {
                     type="string"
                     placeholder="Image url"
                     required
-                    // onChange={() => setUrl(imgUrl)}
+                    onChange={() => console.log("immagine caricata")}
                     value={url}
                   />
                 </Form.Group>

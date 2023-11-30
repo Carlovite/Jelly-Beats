@@ -6,7 +6,11 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { auth, database } from "../../firebase";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -120,6 +124,28 @@ export const LogOutUser = () => {
     } catch (error) {
       dispatch({
         type: "LOG_OUT_ERROR",
+        payload: error.message,
+      });
+    }
+  };
+};
+
+export const createUser = (credentials) => {
+  return async (dispatch) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        credentials.email,
+        credentials.password
+      );
+
+      dispatch({
+        type: "CREATE_USER",
+        payload: userCredential.user.email,
+      });
+    } catch (error) {
+      dispatch({
+        type: "SIGN_UP_ERROR",
         payload: error.message,
       });
     }

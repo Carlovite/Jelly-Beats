@@ -1,63 +1,44 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { signInUser } from "../../redux/actions";
+import LoginComponent from "../LoginComponent";
+import CreateAccComponent from "../CreateAccComponent";
 
 const LogInPage = () => {
-  const dispatch = useDispatch();
-  const authError = useSelector((state) => state.user.authError);
-
-  const [userData, setUserData] = useState({
-    email: "",
-    password: "",
-  });
-  const navigate = useNavigate();
-
+  const [haveAccount, setHaveAccount] = useState(false);
   return (
     <>
-      <Container className="my-5 pe-5">
-        <Row className="d-flex justify-content-center">
-          <h2 className="text-center text-white mb-3">
-            Login to start Shopping!
-          </h2>
-          <Col sm={6}>
-            <Form
-              onSubmit={(e) => {
-                e.preventDefault();
-                dispatch(signInUser(userData));
-                if (!authError) {
-                  navigate("/");
-                  console.log(userData);
-                }
-              }}
-            >
-              <Form.Control
-                className="m-2"
-                placeholder="email"
-                type="email"
-                value={userData.email}
-                onChange={(e) =>
-                  setUserData({ ...userData, email: e.target.value })
-                }
-              ></Form.Control>
-              <Form.Control
-                className="m-2"
-                placeholder="password"
-                type="password"
-                value={userData.password}
-                onChange={(e) =>
-                  setUserData({ ...userData, password: e.target.value })
-                }
-              ></Form.Control>
-              <Button className="m-2" type="submit">
-                Log In
-              </Button>
-            </Form>
-            {authError && <p className="text-center text-white">{authError}</p>}
-          </Col>
-        </Row>
-      </Container>
+      <div className="d-flex flex-column justify-content-center align-items-center">
+        <h2 className="text-center mt-3 fw-bold">Welcome to AlphaBeat</h2>
+        <h3 className="text-center ">New user?</h3>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="login"
+            id="login1"
+            onChange={(e) => setHaveAccount(true)}
+          />
+          <label className="form-check-label" htmlFor="login">
+            login
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="login"
+            id="login2"
+            onChange={(e) => setHaveAccount(false)}
+          />
+          <label className="form-check-label" htmlFor="createAccount">
+            create account
+          </label>
+        </div>
+        {haveAccount ? (
+          <LoginComponent></LoginComponent>
+        ) : (
+          <CreateAccComponent></CreateAccComponent>
+        )}
+      </div>
     </>
   );
 };

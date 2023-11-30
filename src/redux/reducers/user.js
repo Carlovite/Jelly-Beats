@@ -14,6 +14,13 @@ const userReducer = (state = initialState, action) => {
         authError: null,
         userEmail: action.payload,
       };
+    case "CREATE_USER":
+      console.log("Creazione utente avvenuta con successo");
+      return {
+        ...state,
+        authError: null,
+        userEmail: action.payload,
+      };
     case LOG_OUT:
       console.log("Logout utente avvenuta con successo");
       return {
