@@ -26,7 +26,7 @@ const ShoppingCartPage = () => {
             {cart.map((beat, i) => (
               <div
                 key={i}
-                className="my-2 d-flex justify-content-start text-white"
+                className="my-2 d-flex justify-content-start align-items-center text-white"
               >
                 <Button
                   variant=""
@@ -37,7 +37,13 @@ const ShoppingCartPage = () => {
                 >
                   <FaTrash />
                 </Button>
-                <img src={beat.imageUrl} alt="beat selected" className="me-2" />
+                <img
+                  src={beat.url}
+                  alt="beat selected"
+                  width={40}
+                  height={40}
+                  className="me-2"
+                />
                 <span className="ms-2">{beat.title}</span>
               </div>
             ))}

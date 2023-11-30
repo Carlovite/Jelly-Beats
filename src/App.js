@@ -14,7 +14,7 @@ import Details from "./components/pages/Details";
 import TracksPage from "./components/pages/TracksPage";
 import LogoComponent from "./components/LogoComponent";
 import LogInPage from "./components/pages/LoginPage";
-import UploadPageFinal from "./components/pages/UploadPageFinal";
+
 // import FooterComponent from "./components/FooterComponent";
 
 function App() {
@@ -31,10 +31,7 @@ function App() {
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
           <Route element={<TracksPage></TracksPage>} path="/tracks"></Route>
-          <Route
-            element={<UploadPageFinal></UploadPageFinal>}
-            path="/uploadImg"
-          ></Route>
+
           <Route element={<LogInPage></LogInPage>} path="/login"></Route>
           <Route
             element={<ShoppingCartPage></ShoppingCartPage>}

@@ -34,6 +34,13 @@ function UploadPage() {
   function handleChange(event) {
     setFile(event.target.files[0]);
   }
+  function handleReset(r) {
+    if (url !== "") {
+      setUrl("");
+    } else {
+      setUrl(r);
+    }
+  }
 
   const handleUpload = () => {
     if (!file) {
@@ -79,7 +86,7 @@ function UploadPage() {
       navigate("/login");
     }
   }, []);
-  console.log(imgUrl);
+  // console.log(imgUrl);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,7 +110,7 @@ function UploadPage() {
         <Col md={6} className="">
           {IsUserLoggedIn ? (
             <>
-              <h2 className="text-white">Upload a Track</h2>
+              <h2 className="text-white">Upload a Track:</h2>
               <Form className=" text-light" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="title">
                   <Form.Control
@@ -142,29 +149,39 @@ function UploadPage() {
                   />
                 </Form.Group>
 
-                <div>
-                  <input
-                    type="file"
-                    onChange={handleChange}
-                    accept="/image/*"
-                  />
-                  <Button onClick={handleUpload}>Upload to Firebase</Button>
-                  <p>{percent} "% done"</p>
-                </div>
                 <Form.Group className="mb-3" controlId="url">
                   <Form.Control
                     type="string"
                     placeholder="Image url"
                     required
-                    onChange={() => setUrl(imgUrl)}
+                    // onChange={() => setUrl(imgUrl)}
                     value={url}
                   />
                 </Form.Group>
-
+                {imgUrl.map((r) => {
+                  return (
+                    <>
+                      <img
+                        src={r}
+                        alt="select one"
+                        width={40}
+                        height={40}
+                        className="me-2"
+                        onClick={() => handleReset(r)}
+                      />
+                    </>
+                  );
+                })}
                 <Button variant="primary" type="submit" className="my-2">
                   Send
                 </Button>
               </Form>
+              <div className="my-3">
+                <h3 className="mb-3">Load an image from your device:</h3>
+                <input type="file" onChange={handleChange} accept="/image/*" />
+                <Button onClick={handleUpload}>Upload to Firebase</Button>
+                <p>{percent} "% done"</p>
+              </div>
             </>
           ) : (
             <h2 className="text-center text-white">You must Log in first!</h2>

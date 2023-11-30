@@ -6,7 +6,7 @@ const LogoComponent = () => {
   const location = useLocation();
   return (
     <Navbar
-      className="text-white bg-scuro p-3 fixed-top d-md-none"
+      className="text-white bg-scuro px-3 fixed-top d-md-none"
       data-bs-theme="dark"
     >
       <Container>

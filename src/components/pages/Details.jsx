@@ -6,7 +6,7 @@ function Details() {
     <>
       <Container className="my-5">
         <Row>
-          <Col md={4}>
+          <Col md={6}>
             <TrackDetailsComponent></TrackDetailsComponent>
           </Col>
           <Col md={8}></Col>
