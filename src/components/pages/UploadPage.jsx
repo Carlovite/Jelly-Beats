@@ -163,6 +163,7 @@ function UploadPage() {
                   return (
                     <>
                       <img
+                        key={r}
                         src={r}
                         alt="select one"
                         width={40}

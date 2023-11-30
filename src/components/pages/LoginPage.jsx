@@ -6,7 +6,7 @@ const LogInPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
   return (
     <>
-      <div className="d-flex flex-column justify-content-center align-items-center">
+      <div className="my-5 d-flex flex-column justify-content-center align-items-center">
         <h2 className="text-center mt-3 fw-bold">Welcome to AlphaBeat</h2>
         <h3 className="text-center ">New user?</h3>
         <div className="form-check">
@@ -17,7 +17,7 @@ const LogInPage = () => {
             id="login1"
             onChange={(e) => setHaveAccount(true)}
           />
-          <label className="form-check-label" htmlFor="login">
+          <label className="form-check-label" htmlFor="login1">
             login
           </label>
         </div>
@@ -29,7 +29,7 @@ const LogInPage = () => {
             id="login2"
             onChange={(e) => setHaveAccount(false)}
           />
-          <label className="form-check-label" htmlFor="createAccount">
+          <label className="form-check-label" htmlFor="login2">
             create account
           </label>
         </div>
