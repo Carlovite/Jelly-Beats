@@ -14,6 +14,7 @@ const Home = () => {
           <AsideComponent></AsideComponent>
         </Col>
       </Row>
+      <Row></Row>
     </Container>
   );
 };

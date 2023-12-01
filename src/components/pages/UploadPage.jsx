@@ -83,9 +83,9 @@ function UploadPage() {
         });
       });
     });
-    if (!IsUserLoggedIn) {
-      navigate("/login");
-    }
+    // if (!IsUserLoggedIn) {
+    //   navigate("/login");
+    // }
   }, []);
   // console.log(imgUrl);
 
@@ -181,12 +181,17 @@ function UploadPage() {
               <div className="my-3">
                 <h3 className="mb-3">Load an image from your device:</h3>
                 <input type="file" onChange={handleChange} accept="/image/*" />
-                <Button onClick={handleUpload}>Upload to Firebase</Button>
+                <Button onClick={handleUpload}>Upload Image</Button>
                 <p>{percent} "% done"</p>
               </div>
             </>
           ) : (
-            <h2 className="text-center text-white">You must Log in first!</h2>
+            <div className="d-flex flex-column align-items-center justify-content-center">
+              <h2 className="text-center text-white">You must Log in first!</h2>
+              <Button className="px-3" onClick={() => navigate("/login")}>
+                go
+              </Button>
+            </div>
           )}
         </Col>
       </Row>

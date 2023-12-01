@@ -62,7 +62,7 @@ body:before {
   color: #a9a9a9;
 }
 .login:hover {
-  color: blue;
+  color: lightskyblue;
 }
 .ombra {
   -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.31);
@@ -92,4 +92,52 @@ body:before {
 .logoTitle {
   font-size: 1.6rem;
   font-weight: bold;
+}
+.playerButtons {
+  background: none;
+  color: inherit;
+  border: none;
+
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.bg-container {
+  height: 5.5rem;
+  /* background-color: #282828; */
+}
+
+.playerControls div {
+  justify-content: space-between;
+}
+
+.playerControls div:first-of-type {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.playerControls a img {
+  width: 14px;
+  margin-top: 1rem;
+  filter: brightness(60%);
+}
+
+.playerControls a:hover {
+  filter: brightness(80%);
+  color: #282828 !important;
+}
+
+.progress {
+  color: white;
+  background-color: #fff;
+  height: 3px;
+  width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .playerControls div:first-of-type {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
 }
