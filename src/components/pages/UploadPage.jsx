@@ -17,16 +17,51 @@ import {
 function UploadPage() {
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
-  const [bpm, setBpm] = useState("");
-  const [price, setPrice] = useState("");
+  const [bpm, setBpm] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [url, setUrl] = useState("");
+
   const [imgUrl, setImgUrl] = useState([]);
 
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
-
   const [file, setFile] = useState("");
 
-  const [url, setUrl] = useState("");
+  const [mp3, setMp3] = useState("");
+
+  const [audioMp3, setAudioMp3] = useState("");
+  const [mp3Url, setMp3Url] = useState([]);
+
+  function handleChangeAudio(event) {
+    setMp3(event.target.files[0]);
+  }
+
+  const handleUploadAudio = () => {
+    if (!mp3) {
+      alert("Please upload an audio first!");
+    }
+
+    const storageRef = ref(storage, `/mp3/${mp3.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, mp3);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log("entro qui?");
+        });
+      }
+    );
+  };
 
   // progress
   const [percent, setPercent] = useState(0);
@@ -68,7 +103,7 @@ function UploadPage() {
       () => {
         // download url
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          // console.log(url);
+          console.log("entro qui?");
         });
       }
     );
@@ -83,9 +118,14 @@ function UploadPage() {
         });
       });
     });
-    // if (!IsUserLoggedIn) {
-    //   navigate("/login");
-    // }
+    listAll(ref(storage, "mp3")).then((audio) => {
+      console.log(audio);
+      audio.items.forEach((val) => {
+        getDownloadURL(val).then((url) => {
+          setMp3Url((data) => [...data, url]);
+        });
+      });
+    });
   }, []);
   // console.log(imgUrl);
 
@@ -98,6 +138,7 @@ function UploadPage() {
         bpm: bpm,
         price: price,
         url: url,
+        audioMp3: audioMp3,
       });
       navigate("/profile");
     } catch (err) {
@@ -149,10 +190,30 @@ function UploadPage() {
                     value={price}
                   />
                 </Form.Group>
+                <Form.Select
+                  aria-label="Track select"
+                  value={audioMp3}
+                  onChange={(e) => setAudioMp3(e.target.value)}
+                  className="mb-3"
+                >
+                  <option>Select a track</option>
+                  {mp3Url.map((url) => {
+                    return <option value={url}>{url}</option>;
+                  })}
+                </Form.Select>
+                {/* <Form.Group className="mb-3" controlId="audio-file">
+                  <Form.Control
+                    type="text"
+                    placeholder="audio url"
+                    required
+                    onChange={() => console.log("audio caricato correttamente")}
+                    value={audioMp3}
+                  />
+                </Form.Group> */}
 
                 <Form.Group className="mb-3" controlId="url">
                   <Form.Control
-                    type="string"
+                    type="text"
                     placeholder="Image url"
                     required
                     onChange={() => console.log("immagine caricata")}
@@ -174,12 +235,24 @@ function UploadPage() {
                     </>
                   );
                 })}
+                <br></br>
                 <Button variant="primary" type="submit" className="my-2">
                   Send
                 </Button>
               </Form>
               <div className="my-3">
-                <h3 className="mb-3">Load an image from your device:</h3>
+                <h3 className="mb-2">Load audio:</h3>
+                <div>
+                  <input
+                    type="file"
+                    onChange={handleChangeAudio}
+                    accept="/audio/mp3"
+                  />
+                  <Button onClick={handleUploadAudio}>Upload mp3</Button>
+                </div>
+              </div>
+              <div className="my-3">
+                <h3 className="mb-3">Load image:</h3>
                 <input type="file" onChange={handleChange} accept="/image/*" />
                 <Button onClick={handleUpload}>Upload Image</Button>
                 <p>{percent} "% done"</p>

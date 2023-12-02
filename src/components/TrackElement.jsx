@@ -46,10 +46,7 @@ function TrackElement(beatSelected) {
               </div>
               <div className="d-flex justify-content-between">
                 <div className="d-flex flex-row">
-                  <div
-                    className="d-flex justify-content-center align-items-center TwClickable mx-3"
-                    // onClick={console.log(userInfo)}
-                  >
+                  <div className="d-flex justify-content-center align-items-center TwClickable mx-3">
                     <IoMdPlayCircle></IoMdPlayCircle>
                   </div>
                   <div className="d-flex justify-content-center align-items-center TwClickable me-3">
@@ -78,7 +75,6 @@ function TrackElement(beatSelected) {
                     </div>
                   )}
                 </div>
-                <div className="w-25 me-2">{/* <Player></Player> */}</div>
               </div>
             </div>
           </div>

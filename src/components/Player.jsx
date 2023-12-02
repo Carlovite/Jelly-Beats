@@ -1,8 +1,5 @@
 import next from "../assets/playerbuttons/next.png";
-import shuffle from "../assets/playerbuttons/shuffle.png";
 import prev from "../assets/playerbuttons/prev.png";
-import play from "../assets/playerbuttons/play.png";
-import repeat from "../assets/playerbuttons/repeat.png";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
