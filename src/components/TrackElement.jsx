@@ -8,14 +8,13 @@ import { addToCart, deleteElement } from "../redux/actions";
 import React, { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-function TrackElement(beatSelected) {
+function TrackElement() {
   // const [isPlaying, setIsPlaying] = useState(false);
   // const [duration, setDuration] = useState(0);
   // const [currentTime, setCurrentTime] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(
-    beatSelected.beats.map(() => true)
-  );
-  const audioPlayers = useRef(beatSelected.beats.map(() => React.createRef()));
+  const tracks = useSelector((state) => state.beats.stock);
+  const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
+  const audioPlayers = useRef(tracks.map(() => React.createRef()));
   // const audioPlayer = useRef(null);
   // const progressBar = useRef();
   // const animationRef = useRef();
@@ -31,17 +30,16 @@ function TrackElement(beatSelected) {
 
     if (!newIsPlaying[i]) {
       audioPlayers.current[i].current.play();
-      console.log(newIsPlaying[i]);
-      // currentTrack.play();
+      // console.log(newIsPlaying[i]);
     } else {
       audioPlayers.current[i].current.pause();
-      console.log(newIsPlaying[i]);
+      // console.log(newIsPlaying[i]);
     }
   };
 
   return (
     <>
-      {beatSelected.beats.map((r, i) => {
+      {tracks.map((r, i) => {
         return (
           <div
             className=" w-100 text-white d-flex justify-content-around my-5 "
