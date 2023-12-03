@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Button, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +6,13 @@ const Profile = () => {
   // const userInfo = useSelector((state) => state.user.authError);
   const navigate = useNavigate();
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
+  const tracks = useSelector((state) => state.beats.stock);
   // useEffect(() => {
   //   if (!IsUserLoggedIn) {
   //     navigate("/login");
   //   }
   // }, [IsUserLoggedIn, navigate]);
+  console.log(tracks);
   return (
     <>
       <Container className="my-5">

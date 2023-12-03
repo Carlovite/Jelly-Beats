@@ -4,8 +4,8 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, deleteElement } from "../redux/actions";
-import React, { useRef, useState } from "react";
+import { addToCart, deleteElement, getBeatsRealTime } from "../redux/actions";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
 function TrackElement() {
@@ -13,8 +13,12 @@ function TrackElement() {
   // const [duration, setDuration] = useState(0);
   // const [currentTime, setCurrentTime] = useState(0);
   const tracks = useSelector((state) => state.beats.stock);
-  const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
+  // const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
+  // const audioPlayers = useRef(tracks.map(() => React.createRef()));
+
+  const [isPlaying, setIsPlaying] = useState(tracks.map(() => false));
   const audioPlayers = useRef(tracks.map(() => React.createRef()));
+
   // const audioPlayer = useRef(null);
   // const progressBar = useRef();
   // const animationRef = useRef();
@@ -36,6 +40,10 @@ function TrackElement() {
       // console.log(newIsPlaying[i]);
     }
   };
+
+  useEffect(() => {
+    dispatch(getBeatsRealTime());
+  }, []);
 
   return (
     <>
