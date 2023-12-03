@@ -3,11 +3,14 @@ import prev from "../assets/playerbuttons/prev.png";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
 import { FaPause, FaPlay } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { IoMdPause, IoMdPlayCircle } from "react-icons/io";
 
 const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const beats = useSelector((state) => state.beats.stock);
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -78,34 +81,33 @@ const Player = () => {
                 <div className="d-flex justify-content-evenly">
                   <audio
                     ref={audioPlayer}
-                    src="https://cdn.simplecast.com/audio/cae8b0eb-d9a9-480d-a652-0defcbe047f4/episodes/af52a99b-88c0-4638-b120-d46e142d06d3/audio/500344fb-2e2b-48af-be86-af6ac341a6da/default_tc.mp3"
+                    src={beats[0].audioMp3}
                     preload="metadata"
                   ></audio>
 
-                  <Button
+                  <div
                     variant="outline-dark"
-                    className="playerButtons"
+                    className="playerButtons d-flex justify-content-center align-items-center TwClickable mx-3"
                     onClick={backThirty}
                   >
                     <img width={15} height={15} src={prev} alt="prev" />
-                  </Button>
+                  </div>
 
-                  <Button
+                  <div
                     variant="outline-dark"
-                    className="playerButtons"
+                    className="playerButtons d-flex justify-content-center align-items-center TwClickable mx-3"
                     onClick={togglePlayPause}
                   >
-                    {isPlaying ? <FaPause /> : <FaPlay />}
-                    {/* <img width={15} height={15} src={play} alt="play" /> */}
-                  </Button>
+                    {isPlaying ? <IoMdPause /> : <IoMdPlayCircle />}
+                  </div>
 
-                  <Button
+                  <div
                     variant="outline-dark"
-                    className="playerButtons"
+                    className="playerButtons d-flex justify-content-center align-items-center TwClickable mx-3"
                     onClick={forwardThirty}
                   >
                     <img width={15} height={15} src={next} alt="next" />
-                  </Button>
+                  </div>
                 </div>
                 <div className=" mt-3">
                   <input
