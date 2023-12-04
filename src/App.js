@@ -11,7 +11,7 @@ import ShoppingCartPage from "./components/pages/ShoppingCartPage";
 import UploadPage from "./components/pages/UploadPage";
 import NavbarMobile from "./components/NavbarMobile";
 import Details from "./components/pages/Details";
-
+import ArtistPage from "../src/components/pages/ArtistPage";
 import LogoComponent from "./components/LogoComponent";
 import LogInPage from "./components/pages/LoginPage";
 
@@ -20,7 +20,7 @@ import LogInPage from "./components/pages/LoginPage";
 function App() {
   return (
     <BrowserRouter>
-      <div className="box-page">
+      <div className="">
         <NavbarComponent></NavbarComponent>
 
         <LogoComponent></LogoComponent>
@@ -30,6 +30,10 @@ function App() {
           <Route element={<Details></Details>} path="/details-page/:id"></Route>
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
+          <Route
+            element={<ArtistPage></ArtistPage>}
+            path="/artist-page/:uid"
+          ></Route>
 
           <Route element={<LogInPage></LogInPage>} path="/login"></Route>
           <Route

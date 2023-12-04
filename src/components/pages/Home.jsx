@@ -8,15 +8,22 @@ const Home = () => {
   const userInfo = useSelector((state) => state.user.userEmail);
   return (
     <Container className="">
-      <h1 className="text-center mb-3">
-        Welcome back, {userInfo.split("@")[0]}{" "}
-      </h1>
-      <Row className="d-flex my-5">
-        <Col sm={12} md={8} className="mb-3">
+      {userInfo ? (
+        <h1 className="text-center mt-5 mb-3">
+          Welcome back, {userInfo.split("@")[0]}...
+        </h1>
+      ) : (
+        <h1 className="text-center mt-5 mb-3">
+          login to start uploading your tracks!{" "}
+        </h1>
+      )}
+      <hr className="progress"></hr>
+      <Row className="d-flex my-4">
+        <Col sm={12} md={8} className="">
           <h2 className="text-center">Tracks you might like</h2>
           <TrackElement></TrackElement>
         </Col>
-        <Col md={4} className="text-light ">
+        <Col md={4} className="text-light mb-3 ">
           <h2 className="text-center">People you follow</h2>
           <AsideComponent></AsideComponent>
         </Col>

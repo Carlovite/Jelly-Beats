@@ -5,6 +5,7 @@ import { IoMdPause, IoMdPlayCircle } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteElement } from "../../redux/actions";
+import { MdModeEditOutline } from "react-icons/md";
 
 const Profile = () => {
   // const userInfo = useSelector((state) => state.user.authError);
@@ -35,96 +36,95 @@ const Profile = () => {
     let filteredBeat = tracks.filter((beat) => beat.uid === IsUserLoggedIn);
     setFiltered(filteredBeat);
   }, []);
-  console.log(filtered);
+
   return (
     <>
       <Container className="my-5">
         {IsUserLoggedIn ? (
-          filtered ? (
+          filtered[0] ? (
             <Row>
-              {filtered.map((r, i) => {
-                return (
-                  <div
-                    className=" w-100 text-white d-flex justify-content-around my-5 "
-                    key={r.id}
-                  >
-                    <audio
-                      ref={audioPlayers.current[i]}
-                      src={r.audioMp3}
-                      preload="metadata"
-                    ></audio>
-                    <img
-                      src={r.url ? r.url : "https://placedog.net/500"}
-                      alt="Track pic"
-                      width={90}
-                      height={90}
-                      className="ms-2 "
-                      onClick={() => navigate(`/details-page/${r.id}`)}
-                    />
-                    <div className="flex-grow-1 mx-3">
-                      <div className="d-flex justify-content-between align-items-center">
-                        <h3
-                          className="text-start mb-0 mx-2 TwClickable"
-                          onClick={() => navigate(`/details-page/${r.id}`)}
-                        >
-                          {r.title}
-                        </h3>
-                        <h5
-                          className="m-0 mx-2 TwClickable"
-                          onClick={() => navigate("/artist-page")}
-                        >
-                          {r.artist}
-                        </h5>
-                      </div>
-                      <div className="d-flex w-100 align-items-center ">
-                        <hr className="w-100 progress mb-1"></hr>
-                      </div>
-                      <Container className="mt-2">
-                        <Row className="">
-                          <Col sm={6} className="d-flex ps-2">
-                            <div
-                              className="d-flex justify-content-center align-items-center TwClickable me-3"
-                              onClick={() => togglePlayPause(i)}
+              <Col sm={8}>
+                <h1 className="mt-5 text-center">
+                  Your Tracks, {IsUserLoggedIn.split("@")[0]}{" "}
+                </h1>
+                {filtered.map((r, i) => {
+                  return (
+                    <div
+                      className=" w-100 text-white d-flex justify-content-around my-5 "
+                      key={r.id}
+                    >
+                      <audio
+                        ref={audioPlayers.current[i]}
+                        src={r.audioMp3}
+                        preload="metadata"
+                      ></audio>
+                      <img
+                        src={r.url ? r.url : "https://placedog.net/500"}
+                        alt="Track pic"
+                        width={90}
+                        height={90}
+                        className="ms-2 "
+                        onClick={() => navigate(`/details-page/${r.id}`)}
+                      />
+                      <div className="flex-grow-1 mx-3">
+                        <div className="d-flex justify-content-between align-items-center">
+                          <h3
+                            className="text-start mb-0 mx-2 TwClickable"
+                            onClick={() => navigate(`/details-page/${r.id}`)}
+                          >
+                            {r.title}
+                          </h3>
+                          <h5 className="m-0 mx-2">{r.artist}</h5>
+                        </div>
+                        <div className="d-flex w-100 align-items-center ">
+                          <hr className="w-100 progress mb-1"></hr>
+                        </div>
+                        <Container className="mt-2">
+                          <Row className="w-100 d-flex ">
+                            <Col
+                              sm={12}
+                              className="d-flex ps-2 justify-content-between"
                             >
-                              {isPlaying[i] ? (
-                                <IoMdPlayCircle />
-                              ) : (
-                                <IoMdPause />
-                              )}
-                            </div>
+                              <div className="d-flex">
+                                <div
+                                  className="d-flex justify-content-center align-items-center TwClickable me-3"
+                                  onClick={() => togglePlayPause(i)}
+                                >
+                                  {isPlaying[i] ? (
+                                    <IoMdPlayCircle />
+                                  ) : (
+                                    <IoMdPause />
+                                  )}
+                                </div>
 
-                            <div
-                              className="d-flex justify-content-center align-items-center TwClickable me-3"
-                              onClick={() => {
-                                dispatch(deleteElement(r.id));
-                              }}
-                            >
-                              <FaHeart></FaHeart>
-                            </div>
-                            {/* {userInfo ? (
-                      <div
-                        className="d-flex justify-content-center align-items-center TwClickable me-3"
-                        onClick={() => {
-                          dispatch(addToCart(r));
-                        }}
-                      >
-                        <IoMdAddCircle></IoMdAddCircle>
+                                <div
+                                  className="d-flex justify-content-center align-items-center TwClickable me-3"
+                                  onClick={() => {
+                                    dispatch(deleteElement(r.id));
+                                  }}
+                                >
+                                  <FaHeart></FaHeart>
+                                </div>
+                              </div>
+                              <div
+                                className="d-flex justify-content-center align-items-center TwClickable "
+                                onClick={() => {}}
+                              >
+                                <MdModeEditOutline></MdModeEditOutline>
+                              </div>
+                            </Col>
+                          </Row>
+                        </Container>
                       </div>
-                    ) : (
-                      <div className="d-flex justify-content-center align-items-center lessImportant me-3">
-                        <IoMdAddCircle></IoMdAddCircle>
-                      </div>
-                    )} */}
-                          </Col>
-                        </Row>
-                      </Container>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </Col>
             </Row>
           ) : (
-            <p>Upload a track!</p>
+            <h1 className="text-center">
+              Upload a track!, {IsUserLoggedIn.split("@")[0]}!{" "}
+            </h1>
           )
         ) : (
           <div className="d-flex flex-column align-items-center justify-content-center">

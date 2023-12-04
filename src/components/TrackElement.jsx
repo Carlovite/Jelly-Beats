@@ -76,7 +76,7 @@ function TrackElement() {
                 </h3>
                 <h5
                   className="m-0 mx-2 TwClickable"
-                  onClick={() => navigate("/artist-page")}
+                  onClick={() => navigate(`/artist-page/${r.uid}`)}
                 >
                   {r.artist}
                 </h5>
