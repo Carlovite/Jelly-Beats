@@ -74,12 +74,12 @@ function TrackElement() {
                 >
                   {r.title}
                 </h3>
-                <p
+                <h5
                   className="m-0 mx-2 TwClickable"
                   onClick={() => navigate("/artist-page")}
                 >
                   {r.artist}
-                </p>
+                </h5>
               </div>
               <div className="d-flex w-100 align-items-center ">
                 <hr className="w-100 progress mb-1"></hr>

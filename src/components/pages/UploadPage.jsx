@@ -20,6 +20,7 @@ function UploadPage() {
   const [bpm, setBpm] = useState(0);
   const [price, setPrice] = useState(0);
   const [url, setUrl] = useState("");
+  const [uid, setUid] = useState("");
 
   const [imgUrl, setImgUrl] = useState([]);
 
@@ -126,6 +127,7 @@ function UploadPage() {
         });
       });
     });
+    setUid(IsUserLoggedIn);
   }, []);
   // console.log(imgUrl);
 
@@ -139,6 +141,7 @@ function UploadPage() {
         price: price,
         url: url,
         audioMp3: audioMp3,
+        uid: uid,
       });
       navigate("/profile");
     } catch (err) {
@@ -161,6 +164,16 @@ function UploadPage() {
                     required
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="user">
+                  <Form.Control
+                    type="text"
+                    placeholder="user"
+                    required
+                    // onChange={console.log("user logged in")}
+                    readOnly
+                    value={uid}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="artist">
