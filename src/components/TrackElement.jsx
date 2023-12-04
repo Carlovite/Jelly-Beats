@@ -16,7 +16,7 @@ function TrackElement() {
   // const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
   // const audioPlayers = useRef(tracks.map(() => React.createRef()));
 
-  const [isPlaying, setIsPlaying] = useState(tracks.map(() => false));
+  const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
   const audioPlayers = useRef(tracks.map(() => React.createRef()));
 
   // const audioPlayer = useRef(null);
