@@ -63,7 +63,7 @@ function Details() {
                       alt="Track pic"
                       width={90}
                       height={90}
-                      className="ms-2 "
+                      className="ms-2 ombra "
                       onClick={() => navigate(`/details-page/${r.id}`)}
                     />
                     <div className="flex-grow-1 mx-3">

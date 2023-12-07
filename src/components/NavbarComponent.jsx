@@ -2,23 +2,46 @@ import { Button, Form } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FaSearch } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import CartIndicator from "./CartIndicator";
 import { useDispatch, useSelector } from "react-redux";
-// import { setLogOut } from "../redux/actions";
+
 import Logo from "../assets/Opera_senza_titolo.png";
 import { LogOutUser } from "../redux/actions";
+import { useState } from "react";
 
 function NavbarComponent() {
   const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  // const [inputText, setInputText] = useState("");
+
+  // let inputHandler = (e) => {
+  //   let lowerCase = e.target.value.toLowerCase();
+  //   setInputText(lowerCase);
+  // };
+
+  const [query, setQuery] = useState("");
+  const tracks = useSelector((state) => state.beats.stock);
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    for (let i = 0; i < tracks.length; i++) {
+      if (tracks[i].title === query) {
+        navigate(`/details-page/${tracks[i].id}`);
+      } else if (tracks[i].artist === query) {
+        navigate(`/artist-page/${tracks[i].uid}`);
+      }
+    }
+  };
+
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.user.userEmail);
   return (
     <>
       <Navbar
-        // bg="black"
         data-bs-theme="dark"
         className="border-bottom d-none d-md-flex sticky-top bg-scuro"
       >
@@ -27,18 +50,18 @@ function NavbarComponent() {
             <img src={Logo} alt="logo" width={50} height={50}></img>
           </Link>
           <div className="d-flex">
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSubmit}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className=""
                 aria-label="Search"
+                onChange={handleChange}
               ></Form.Control>
               <Button
                 type="submit"
                 variant="outline"
                 className=" d-flex justify-content-center align-items-center"
-                // onClick={() => navigate("/shopping-cart")}
               >
                 <FaSearch></FaSearch>
               </Button>

@@ -4,6 +4,8 @@ import {
   getDocs,
   deleteDoc,
   onSnapshot,
+  getDoc,
+  setDoc,
 } from "firebase/firestore";
 import { auth, database } from "../../firebase";
 import {
@@ -20,6 +22,7 @@ export const GET_DATA = "GET_DATA";
 export const DELETE_DATA = "DELETE_DATA";
 export const GET_DATA_REALTIME = "GET_DATA_REALTIME";
 export const SIGN_IN = "SIGN_IN";
+export const EDIT_DATA = "EDIT_DATA";
 export const addToCart = (r) => {
   return {
     type: ADD_TO_CART,
@@ -148,6 +151,23 @@ export const createUser = (credentials) => {
         type: "SIGN_UP_ERROR",
         payload: error.message,
       });
+    }
+  };
+};
+
+export const editElement = (id, price) => {
+  return async (dispatch) => {
+    try {
+      const ref = doc(database, "beats", id);
+      const data = await getDoc(ref);
+      if (data.exists()) {
+        setDoc(ref, { content: price });
+        dispatch({
+          type: EDIT_DATA,
+        });
+      } else throw new Error("Data with id " + id + "was not found");
+    } catch (error) {
+      console.error(error);
     }
   };
 };

@@ -1,4 +1,9 @@
-import { DELETE_DATA, GET_DATA, GET_DATA_REALTIME } from "../actions";
+import {
+  DELETE_DATA,
+  GET_DATA,
+  GET_DATA_REALTIME,
+  EDIT_DATA,
+} from "../actions";
 
 const initialState = {
   stock: [],
@@ -19,6 +24,10 @@ const beatReducer = (state = initialState, action) => {
       return {
         ...state,
         stock: action.payload,
+      };
+    case EDIT_DATA:
+      return {
+        ...state,
       };
     default:
       return state;

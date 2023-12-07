@@ -14,6 +14,7 @@ import Details from "./components/pages/Details";
 import ArtistPage from "../src/components/pages/ArtistPage";
 import LogoComponent from "./components/LogoComponent";
 import LogInPage from "./components/pages/LoginPage";
+import SearchPage from "./components/pages/SearchPage";
 
 // import FooterComponent from "./components/FooterComponent";
 
@@ -30,6 +31,7 @@ function App() {
           <Route element={<Details></Details>} path="/details-page/:id"></Route>
           <Route element={<UploadPage></UploadPage>} path="/upload"></Route>
           <Route element={<Profile></Profile>} path="/profile"></Route>
+          <Route element={<SearchPage></SearchPage>} path="/search"></Route>
           <Route
             element={<ArtistPage></ArtistPage>}
             path="/artist-page/:uid"
