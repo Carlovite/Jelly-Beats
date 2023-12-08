@@ -78,7 +78,7 @@ function TrackElement() {
                   className="m-0 mx-2 TwClickable"
                   onClick={() => navigate(`/artist-page/${r.uid}`)}
                 >
-                  {r.artist}
+                  {r.uid.split("@")[0]}
                 </h5>
               </div>
               <div className="d-flex w-100 align-items-center ">
