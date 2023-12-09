@@ -17,7 +17,6 @@ const SearchPage = () => {
     e.preventDefault();
     for (let i = 0; i < tracks.length; i++) {
       if (tracks[i].title.includes(query)) {
-        // navigate(`/details-page/${tracks[i].id}`);
         setResultsTrack([...resultsTrack, tracks[i]]);
       } else if (tracks[i].uid.split("@")[0].includes(query)) {
         setResultsProfile([...resultsProfile, tracks[i]]);

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { addToCart } from "../redux/actions";
+import { Spinner } from "react-bootstrap";
 
 function TrackDetailsComponent() {
   const params = useParams();
@@ -70,12 +71,16 @@ function TrackDetailsComponent() {
           preload="metadata"
         ></audio>
         <div className="d-flex justify-content-center mb-3">
-          <img
-            src={filtered.url ? filtered.url : "https://placedog.net/500"}
-            alt="profile"
-            width={200}
-            height={200}
-          ></img>
+          {filtered.url ? (
+            <img
+              src={filtered.url}
+              alt="profile"
+              width={200}
+              height={200}
+            ></img>
+          ) : (
+            <Spinner animation="grow"></Spinner>
+          )}
         </div>
         <div className="w-25">
           <h3 className=" text-center">{filtered.title}</h3>

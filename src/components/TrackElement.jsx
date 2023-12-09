@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteElement, getBeatsRealTime } from "../redux/actions";
 import React, { useEffect, useRef, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 function TrackElement() {
   // const [isPlaying, setIsPlaying] = useState(false);
@@ -58,14 +58,20 @@ function TrackElement() {
               src={r.audioMp3}
               preload="metadata"
             ></audio>
-            <img
-              src={r.url ? r.url : "https://placedog.net/500"}
-              alt="Track pic"
-              width={90}
-              height={90}
-              className="ms-2 ombra"
-              onClick={() => navigate(`/details-page/${r.id}`)}
-            />
+
+            {r.url ? (
+              <img
+                src={r.url}
+                alt="Track pic"
+                width={90}
+                height={90}
+                className="ms-2 ombra"
+                onClick={() => navigate(`/details-page/${r.id}`)}
+              />
+            ) : (
+              <Spinner animation="grow"></Spinner>
+            )}
+
             <div className="flex-grow-1 mx-3">
               <div className="d-flex justify-content-between align-items-center">
                 <h3
