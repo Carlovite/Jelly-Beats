@@ -22,8 +22,8 @@ body {
 
 body:before {
   content: "";
-  /* background: url("48484833-1118-455d-9087-30649fba07d0.jpg") no-repeat center */
-  /* background: url("c501c8d1-c1be-41f7-89fc-dbbd50fd6090.jpg") no-repeat center */
+  /* background: url("48484833-1118-455d-9087-30649fba07d0.jpg") no-repeat center
+    /* background: url("c501c8d1-c1be-41f7-89fc-dbbd50fd6090.jpg") no-repeat center */
   /* center/cover; */
   background-color: rgb(119, 82, 156);
   position: absolute;
@@ -163,3 +163,6 @@ body:before {
   /* background-color: rgba(56, 49, 49, 0.5); */
   padding: 1rem;
 }
+/* .bottone {
+  background-color: rgb(62, 3, 99);
+} */

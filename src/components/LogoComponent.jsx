@@ -1,6 +1,7 @@
 import { Container, Navbar } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../assets/Opera_senza_titolo.png";
+// import Logo from "../assets/Opera_senza_titolo.png";
+import Logo2 from "../assets/jelly-beats.png";
 
 const LogoComponent = () => {
   const location = useLocation();
@@ -18,13 +19,13 @@ const LogoComponent = () => {
         >
           <div className="d-flex justify-content-center align-items-center">
             <img
-              alt=""
-              src={Logo}
-              width="40"
+              alt="logo-page"
+              src={Logo2}
+              width="85"
               height="40"
               className="d-inline-block align-top"
             />{" "}
-            <p className="mb-0 mx-2 logoTitle">Alpha-beat</p>
+            {/* <p className="mb-0 mx-2 logoTitle">Alpha-beat</p> */}
           </div>
         </Link>
       </Container>

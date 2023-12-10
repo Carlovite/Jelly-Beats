@@ -14,7 +14,7 @@ const Home = () => {
         </h1>
       ) : (
         <h1 className="text-center mt-5 mb-3">
-          login to start uploading your tracks!{" "}
+          Login to start uploading your tracks!{" "}
         </h1>
       )}
       <hr className="progress"></hr>

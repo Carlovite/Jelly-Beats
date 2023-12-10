@@ -256,13 +256,19 @@ function UploadPage() {
                     type="file"
                     onChange={handleChangeAudio}
                     accept="/audio/mp3"
+                    className="bottone"
                   />
                   <Button onClick={handleUploadAudio}>Upload mp3</Button>
                 </div>
               </div>
               <div className="my-3">
                 <h3 className="mb-3">Load image:</h3>
-                <input type="file" onChange={handleChange} accept="/image/*" />
+                <input
+                  className="bottone"
+                  type="file"
+                  onChange={handleChange}
+                  accept="/image/*"
+                />
                 <Button onClick={handleUpload}>Upload Image</Button>
                 <p>{percent} "% done"</p>
               </div>

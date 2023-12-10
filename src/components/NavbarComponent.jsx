@@ -6,7 +6,7 @@ import { BsArrowLeftSquareFill } from "react-icons/bs";
 import CartIndicator from "./CartIndicator";
 import { useDispatch, useSelector } from "react-redux";
 
-import Logo from "../assets/Opera_senza_titolo.png";
+import Logo from "../assets/jelly-beats.png";
 import { LogOutUser } from "../redux/actions";
 
 function NavbarComponent() {
@@ -22,7 +22,7 @@ function NavbarComponent() {
       >
         <div className="d-flex justify-content-between align-items-center w-100 mx-5">
           <Link to="/" className="me-5 text-light nav-link">
-            <img src={Logo} alt="logo" width={50} height={50}></img>
+            <img src={Logo} alt="logo" width={100} height={50}></img>
           </Link>
           <div className="d-flex align-items-center">
             <Link
