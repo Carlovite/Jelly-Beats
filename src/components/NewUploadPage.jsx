@@ -14,11 +14,11 @@ import {
   listAll,
 } from "firebase/storage";
 
-function UploadPage() {
+function NewUploadPage() {
   const [title, setTitle] = useState("");
-
-  const [bpm, setBpm] = useState("");
-  const [price, setPrice] = useState("");
+  const [artist, setArtist] = useState("");
+  const [bpm, setBpm] = useState(0);
+  const [price, setPrice] = useState(0);
   const [url, setUrl] = useState("");
   const [uid, setUid] = useState("");
 
@@ -136,7 +136,7 @@ function UploadPage() {
     try {
       await addDoc(collection(database, "beats"), {
         title: title,
-
+        artist: artist,
         bpm: bpm,
         price: price,
         url: url,
@@ -173,10 +173,18 @@ function UploadPage() {
                     required
                     // onChange={console.log("user logged in")}
                     readOnly
-                    value={uid.split("@")[0]}
+                    value={uid}
                   />
                 </Form.Group>
-
+                <Form.Group className="mb-3" controlId="artist">
+                  <Form.Control
+                    type="text"
+                    placeholder="Artist"
+                    required
+                    onChange={(e) => setArtist(e.target.value)}
+                    value={artist}
+                  />
+                </Form.Group>
                 <Form.Group className="mb-3" controlId="bpm">
                   <Form.Control
                     type="number"
@@ -203,11 +211,7 @@ function UploadPage() {
                 >
                   <option>Select a track</option>
                   {mp3Url.map((url) => {
-                    return (
-                      <option value={url} key={url}>
-                        {url}
-                      </option>
-                    );
+                    return <option value={url}>{url}</option>;
                   })}
                 </Form.Select>
                 {/* <Form.Group className="mb-3" controlId="audio-file">
@@ -281,4 +285,4 @@ function UploadPage() {
   );
 }
 
-export default UploadPage;
+export default NewUploadPage;
