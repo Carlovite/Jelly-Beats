@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Afacad:wght@400;500;700&family=Bebas+Neue&family=Roboto+Condensed:wght@400;500;900&display=swap");
 
 html {
   height: 100%;
@@ -15,15 +15,17 @@ body {
   position: relative;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   letter-spacing: 0.1rem;
   overflow-x: hidden;
 }
 
 body:before {
   content: "";
-  background: url("c501c8d1-c1be-41f7-89fc-dbbd50fd6090.jpg") no-repeat center
-    center/cover;
+  /* background: url("48484833-1118-455d-9087-30649fba07d0.jpg") no-repeat center */
+  /* background: url("c501c8d1-c1be-41f7-89fc-dbbd50fd6090.jpg") no-repeat center */
+  /* center/cover; */
+  background-color: rgb(119, 82, 156);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -31,6 +33,10 @@ body:before {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.Titoli {
+  font-family: "Bebas Neue", sans-serif;
 }
 
 .CarouselImage {
@@ -90,7 +96,8 @@ body:before {
   margin-top: 29.5rem;
 } */
 .bg-scuro {
-  background-color: rgb(27, 28, 31);
+  background-color: rgb(42, 22, 59);
+  /* background-color: rgb(27, 28, 31); */
 }
 .box-page {
   position: absolute;
@@ -150,4 +157,9 @@ body:before {
     margin-left: 25%;
     margin-right: 25%;
   }
+}
+.cardTrack {
+  background-color: rgba(42, 22, 59, 0.8);
+  /* background-color: rgba(56, 49, 49, 0.5); */
+  padding: 1rem;
 }

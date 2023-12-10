@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <Container className="">
       {userInfo ? (
-        <h1 className="text-center mt-5 mb-3">
+        <h1 className="text-center mt-5 mb-3 Titoli">
           Welcome back, {userInfo.split("@")[0]}...
         </h1>
       ) : (
@@ -24,7 +24,7 @@ const Home = () => {
           <TrackElement></TrackElement>
         </Col>
         <Col md={4} className="text-light mb-3 ">
-          <h2 className="text-center">People you follow</h2>
+          <h2 className="text-center Titoli">People you follow</h2>
           <AsideComponent></AsideComponent>
         </Col>
       </Row>

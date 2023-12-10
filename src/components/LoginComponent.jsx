@@ -49,7 +49,7 @@ const LoginComponent = () => {
                   setUserData({ ...userData, password: e.target.value })
                 }
               ></Form.Control>
-              <Button className="m-2" type="submit">
+              <Button className="m-2 btn-primary" type="submit">
                 Log In
               </Button>
             </Form>

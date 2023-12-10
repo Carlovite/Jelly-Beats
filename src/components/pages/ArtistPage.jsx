@@ -50,7 +50,7 @@ function Details() {
               {filtered.map((r, i) => {
                 return (
                   <div
-                    className=" w-100 text-white d-flex justify-content-around my-5 "
+                    className=" w-100 text-white d-flex justify-content-around my-5 cardTrack"
                     key={r.id}
                   >
                     <audio

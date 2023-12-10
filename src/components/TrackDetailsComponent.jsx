@@ -64,7 +64,7 @@ function TrackDetailsComponent() {
 
   return (
     <>
-      <div className="d-flex flex-column bg-dark text-light rounded mx-3 p-4 ombra align-items-center">
+      <div className="d-flex flex-column cardTrack text-light rounded mx-3 p-4 ombra align-items-center">
         <audio
           ref={audioPlayer}
           src={filtered.audioMp3}

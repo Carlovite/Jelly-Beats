@@ -44,13 +44,13 @@ const Profile = () => {
           filtered[0] ? (
             <Row>
               <Col sm={8}>
-                <h1 className="mt-5 text-center">
+                <h1 className="mt-5 text-center Titoli">
                   Your Tracks, {IsUserLoggedIn.split("@")[0]}{" "}
                 </h1>
                 {filtered.map((r, i) => {
                   return (
                     <div
-                      className=" w-100 text-white d-flex justify-content-around my-5 "
+                      className=" w-100 text-white d-flex justify-content-around rounded my-5 cardTrack"
                       key={r.id}
                     >
                       <audio
@@ -74,7 +74,7 @@ const Profile = () => {
                           >
                             {r.title}
                           </h3>
-                          <h5 className="m-0 mx-2">{r.artist}</h5>
+                          <h5 className="m-0 mx-2">{r.uid.split("@")[0]}</h5>
                         </div>
                         <div className="d-flex w-100 align-items-center ">
                           <hr className="w-100 progress mb-1"></hr>
