@@ -51,7 +51,7 @@ function Details() {
               {filtered.map((r, i) => {
                 return (
                   <motion.div
-                    className=" w-100 text-white d-flex justify-content-around my-5 cardTrack"
+                    className=" w-100 text-white d-flex justify-content-around rounded my-5 cardTrack"
                     key={r.id}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -83,42 +83,50 @@ function Details() {
                       <div className="d-flex w-100 align-items-center ">
                         <hr className="w-100 progress mb-1"></hr>
                       </div>
-                      <Container className="mt-2">
-                        <Row className="">
-                          <Col sm={6} className="d-flex ps-2">
-                            <div
-                              className="d-flex justify-content-center align-items-center TwClickable me-3"
-                              onClick={() => togglePlayPause(i)}
-                            >
-                              {isPlaying[i] ? (
-                                <IoMdPlayCircle />
-                              ) : (
-                                <IoMdPause />
-                              )}
-                            </div>
+                      <Container className="mt-2 d-flex">
+                        <Row className="flex-grow-1">
+                          <Col
+                            sm={6}
+                            className="d-flex ps-2 justify-content-between"
+                          >
+                            <div className="d-flex">
+                              <div
+                                className="d-flex justify-content-center align-items-center TwClickable me-3"
+                                onClick={() => togglePlayPause(i)}
+                              >
+                                {isPlaying[i] ? (
+                                  <IoMdPlayCircle />
+                                ) : (
+                                  <IoMdPause />
+                                )}
+                              </div>
 
-                            <div
-                              className="d-flex justify-content-center align-items-center TwClickable me-3"
-                              onClick={() => {
-                                dispatch(deleteElement(r.id));
-                              }}
-                            >
-                              <FaHeart></FaHeart>
-                            </div>
-                            {IsUserLoggedIn ? (
                               <div
                                 className="d-flex justify-content-center align-items-center TwClickable me-3"
                                 onClick={() => {
-                                  dispatch(addToCart(r));
+                                  dispatch(deleteElement(r.id));
                                 }}
                               >
-                                <IoMdAddCircle></IoMdAddCircle>
+                                <FaHeart></FaHeart>
                               </div>
-                            ) : (
-                              <div className="d-flex justify-content-center align-items-center lessImportant me-3">
-                                <IoMdAddCircle></IoMdAddCircle>
-                              </div>
-                            )}
+                              {IsUserLoggedIn ? (
+                                <div
+                                  className="d-flex justify-content-center align-items-center TwClickable me-3"
+                                  onClick={() => {
+                                    dispatch(addToCart(r));
+                                  }}
+                                >
+                                  <IoMdAddCircle></IoMdAddCircle>
+                                </div>
+                              ) : (
+                                <div className="d-flex justify-content-center align-items-center lessImportant me-3">
+                                  <IoMdAddCircle></IoMdAddCircle>
+                                </div>
+                              )}
+                            </div>
+                            <div>
+                              <p className="mb-0">{r.price} $</p>
+                            </div>
                           </Col>
                         </Row>
                       </Container>

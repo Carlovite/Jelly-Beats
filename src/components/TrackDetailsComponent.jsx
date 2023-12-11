@@ -127,7 +127,7 @@ function TrackDetailsComponent() {
           <div>
             <div className="d-flex mx-3 align-items-center w-100 justify-content-between">
               <span className=" Fs8 mb-2">Published:</span>
-              <span className="lessImportant Fs8 mb-2">{data} </span>
+              <span className="lessImportant Fs8 mb-2">{filtered.date} </span>
             </div>
             <div className="d-flex mx-3 align-items-center w-100  justify-content-between">
               <span className=" Fs8 mb-2">BPM:</span>

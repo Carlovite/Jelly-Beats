@@ -22,6 +22,7 @@ function UploadPage() {
   const [price, setPrice] = useState("");
   const [url, setUrl] = useState("");
   const [uid, setUid] = useState("");
+  const [releaseDate, setReleaseDate] = useState("");
 
   const [imgUrl, setImgUrl] = useState([]);
 
@@ -129,6 +130,7 @@ function UploadPage() {
       });
     });
     setUid(IsUserLoggedIn);
+    setReleaseDate(new Date().toDateString());
   }, []);
   // console.log(imgUrl);
 
@@ -137,7 +139,7 @@ function UploadPage() {
     try {
       await addDoc(collection(database, "beats"), {
         title: title,
-
+        date: releaseDate,
         bpm: bpm,
         price: price,
         url: url,
@@ -246,6 +248,16 @@ function UploadPage() {
                   );
                 })}
                 <br></br>
+                <Form.Group className="my-3" controlId="date">
+                  <Form.Control
+                    type="text"
+                    placeholder="date"
+                    required
+                    // onChange={console.log("user logged in")}
+                    readOnly
+                    value={releaseDate}
+                  />
+                </Form.Group>
                 <motion.button
                   className="btn btn-primary m-2"
                   whileHover={{ scale: 1.2 }}

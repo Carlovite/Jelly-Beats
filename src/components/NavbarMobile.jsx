@@ -1,5 +1,4 @@
 import Nav from "react-bootstrap/Nav";
-import { IoMusicalNotesSharp } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { MdAccountCircle } from "react-icons/md";
@@ -9,6 +8,7 @@ import CartIndicator from "./CartIndicator";
 import { BsArrowLeftSquareFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOutUser } from "../redux/actions";
+import { IoHomeSharp } from "react-icons/io5";
 // import { setLogOut } from "../redux/actions";
 
 function NavbarMobile() {
@@ -38,14 +38,12 @@ function NavbarMobile() {
             <FaSearch></FaSearch>
           </Link>
           <Link
-            to="/tracks"
+            to="/"
             className={
-              location.pathname === "/tracks"
-                ? "nav-link  active "
-                : "nav-link  "
+              location.pathname === "/" ? "nav-link  active " : "nav-link  "
             }
           >
-            <IoMusicalNotesSharp></IoMusicalNotesSharp>
+            <IoHomeSharp></IoHomeSharp>
           </Link>
           <Link
             to="/upload"

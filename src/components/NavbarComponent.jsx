@@ -32,7 +32,7 @@ function NavbarComponent() {
               height={50}
             ></motion.img>
           </Link>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center navlink">
             <Link
               to="/search"
               className={
@@ -51,16 +51,7 @@ function NavbarComponent() {
               >
                 Home
               </Link>
-              <Link
-                to="/tracks"
-                className={
-                  location.pathname === "/tracks"
-                    ? "nav-link active"
-                    : "nav-link"
-                }
-              >
-                Tracks
-              </Link>
+
               <Link
                 to="/upload"
                 className={

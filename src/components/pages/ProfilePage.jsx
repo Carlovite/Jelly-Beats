@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteElement } from "../../redux/actions";
 import { MdModeEditOutline } from "react-icons/md";
 import { motion } from "framer-motion";
+import AsideComponent from "../AsideComponent";
 
 const Profile = () => {
   // const userInfo = useSelector((state) => state.user.authError);
@@ -112,7 +113,7 @@ const Profile = () => {
                               </div>
                               <div
                                 className="d-flex justify-content-center align-items-center TwClickable "
-                                onClick={() => {}}
+                                onClick={() => navigate(`/edit-page/${r.id}`)}
                               >
                                 <MdModeEditOutline></MdModeEditOutline>
                               </div>
@@ -123,6 +124,12 @@ const Profile = () => {
                     </motion.div>
                   );
                 })}
+              </Col>
+              <Col md={4}>
+                <h2 className="mt-5 text-center Titoli">
+                  People you listen to:
+                </h2>
+                <AsideComponent></AsideComponent>
               </Col>
             </Row>
           ) : (

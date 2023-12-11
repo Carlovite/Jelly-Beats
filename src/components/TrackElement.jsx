@@ -4,7 +4,7 @@ import { IoMdAddCircle } from "react-icons/io";
 import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, deleteElement, getBeatsRealTime } from "../redux/actions";
+import { addToCart, getBeatsRealTime } from "../redux/actions";
 import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
@@ -95,38 +95,38 @@ function TrackElement() {
               <div className="d-flex w-100 align-items-center ">
                 <hr className="w-100 progress mb-1"></hr>
               </div>
-              <Container className="mt-2">
-                <Row className="">
-                  <Col sm={6} className="d-flex ps-2">
-                    <div
-                      className="d-flex justify-content-center align-items-center TwClickable me-3"
-                      onClick={() => togglePlayPause(i)}
-                    >
-                      {isPlaying[i] ? <IoMdPlayCircle /> : <IoMdPause />}
-                    </div>
-
-                    <div
-                      className="d-flex justify-content-center align-items-center TwClickable me-3"
-                      onClick={() => {
-                        dispatch(deleteElement(r.id));
-                      }}
-                    >
-                      <FaHeart></FaHeart>
-                    </div>
-                    {userInfo ? (
+              <Container className="mt-2 d-flex ">
+                <Row className="flex-grow-1">
+                  <Col sm={6} className="d-flex ps-2 justify-content-between">
+                    <div className="d-flex">
                       <div
                         className="d-flex justify-content-center align-items-center TwClickable me-3"
-                        onClick={() => {
-                          dispatch(addToCart(r));
-                        }}
+                        onClick={() => togglePlayPause(i)}
                       >
-                        <IoMdAddCircle></IoMdAddCircle>
+                        {isPlaying[i] ? <IoMdPlayCircle /> : <IoMdPause />}
                       </div>
-                    ) : (
-                      <div className="d-flex justify-content-center align-items-center lessImportant me-3">
-                        <IoMdAddCircle></IoMdAddCircle>
+
+                      <div className="d-flex justify-content-center align-items-center TwClickable me-3">
+                        <FaHeart></FaHeart>
                       </div>
-                    )}
+                      {userInfo ? (
+                        <div
+                          className="d-flex justify-content-center align-items-center TwClickable me-3"
+                          onClick={() => {
+                            dispatch(addToCart(r));
+                          }}
+                        >
+                          <IoMdAddCircle></IoMdAddCircle>
+                        </div>
+                      ) : (
+                        <div className="d-flex justify-content-center align-items-center lessImportant me-3">
+                          <IoMdAddCircle></IoMdAddCircle>
+                        </div>
+                      )}
+                      <div>
+                        <p className="mb-0">{r.price} $</p>
+                      </div>
+                    </div>
                   </Col>
                 </Row>
               </Container>

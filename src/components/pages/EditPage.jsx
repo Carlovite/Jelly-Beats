@@ -1,12 +1,110 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { database } from "../../firebase";
+import { deleteElement } from "../../redux/actions";
 
 function EditPage() {
+  const params = useParams();
+  const tracks = useSelector((state) => state.beats.stock);
+  const [titolo, setTitolo] = useState("");
+  const [price, setPrice] = useState("");
+  const [filtered, setFiltered] = useState([]);
+  const [bpm, setBpm] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // export const editPostById = async (id: string, body: string) => {
+  //   try {
+  //     const found = doc(db, "posts", id);
+  //     const data = await getDoc(found);
+  //     if (data.exists()) {
+  //       setDoc(found, { content: body }); //setDoc takes a document reference and how to change it
+  //     } else throw new Error("Data with id " + id + " was not found");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const trackToedit = doc(database, "beats", filtered.id);
+      const data = await getDoc(trackToedit);
+      if (data.exists()) {
+        setDoc(trackToedit, {
+          ...filtered,
+          title: titolo,
+          price: price,
+          bpm: bpm,
+        });
+        navigate("/");
+      } else throw new Error("Data was not found");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    let filteredBeat = tracks.filter((beat) => beat.id === params.id);
+    setFiltered(filteredBeat[0]);
+    setTitolo(filtered.title);
+    setPrice(filtered.price);
+    setBpm(filtered.bpm);
+  }, []);
+
   return (
     <>
       <Container className="my-5">
-        <Row>
-          <Col md={6}></Col>
-          <Col md={8}></Col>
+        <Row className="d-flex flex-column align-items-center justify-content-center w-100">
+          <h2>Edit Track</h2>
+          <Col md={8}>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3">
+                <Form.Control
+                  type="text"
+                  placeholder={filtered.title}
+                  onChange={(e) => setTitolo(e.target.value)}
+                  value={titolo}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="bpm">
+                <Form.Control
+                  type="number"
+                  placeholder={filtered.bpm}
+                  onChange={(e) => setBpm(e.target.value)}
+                  value={bpm}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="price">
+                <Form.Control
+                  type="number"
+                  placeholder={filtered.price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  value={price}
+                />
+              </Form.Group>
+              <motion.button
+                className="btn btn-primary m-2"
+                whileHover={{ scale: 1.2 }}
+                type="submit"
+              >
+                UPDATE
+              </motion.button>
+            </Form>
+          </Col>
+
+          <div
+            className="d-flex justify-content-center align-items-center TwClickable me-3 btn btn-danger w-25"
+            onClick={() => {
+              dispatch(deleteElement(filtered.id));
+            }}
+          >
+            <p className="mb-0">DELETE</p>
+          </div>
         </Row>
       </Container>
     </>

@@ -16,6 +16,7 @@ import ArtistPage from "../src/components/pages/ArtistPage";
 import LogoComponent from "./components/LogoComponent";
 import LogInPage from "./components/pages/LoginPage";
 import SearchPage from "./components/pages/SearchPage";
+import EditPage from "./components/pages/EditPage";
 
 // import FooterComponent from "./components/FooterComponent";
 
@@ -37,6 +38,7 @@ function App() {
             element={<ArtistPage></ArtistPage>}
             path="/artist-page/:uid"
           ></Route>
+          <Route element={<EditPage></EditPage>} path="/edit-page/:id"></Route>
 
           <Route element={<LogInPage></LogInPage>} path="/login"></Route>
           <Route

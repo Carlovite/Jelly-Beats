@@ -25,7 +25,7 @@ body:before {
   /* background: url("48484833-1118-455d-9087-30649fba07d0.jpg") no-repeat center
     /* background: url("c501c8d1-c1be-41f7-89fc-dbbd50fd6090.jpg") no-repeat center */
   /* center/cover; */
-  background-color: rgb(127, 93, 216);
+  background-color: rgb(112, 97, 152);
   position: absolute;
   width: 100%;
   height: 100%;
@@ -47,7 +47,8 @@ body:before {
 }
 .navlink {
   text-decoration: none;
-  color: white;
+
+  font-size: 1.2rem;
 }
 
 /* .navlink {
