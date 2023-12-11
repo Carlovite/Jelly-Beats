@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { signInUser } from "../redux/actions";
+import { motion } from "framer-motion";
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const authError = useSelector((state) => state.user.authError);
@@ -49,9 +50,22 @@ const LoginComponent = () => {
                   setUserData({ ...userData, password: e.target.value })
                 }
               ></Form.Control>
-              <Button className="m-2 btn-primary" type="submit">
-                Log In
-              </Button>
+              {/* <motion.div
+                whileHover={{ scale: 1.2 }}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <Button className="m-2 btn-primary" type="submit">
+                  Log In
+                </Button>
+              </motion.div> */}
+
+              <motion.button
+                className="btn btn-primary"
+                type="submit"
+                whileHover={{ scale: 1.2 }}
+              >
+                SIGN IN
+              </motion.button>
             </Form>
             {authError && <p className="text-center text-white">{authError}</p>}
           </Col>

@@ -13,6 +13,7 @@ import {
   getDownloadURL,
   listAll,
 } from "firebase/storage";
+import { motion } from "framer-motion";
 
 function UploadPage() {
   const [title, setTitle] = useState("");
@@ -202,9 +203,9 @@ function UploadPage() {
                   className="mb-3"
                 >
                   <option>Select a track</option>
-                  {mp3Url.map((url) => {
+                  {mp3Url.map((url, i) => {
                     return (
-                      <option value={url} key={url}>
+                      <option value={url} key={i}>
                         {url}
                       </option>
                     );
@@ -229,11 +230,11 @@ function UploadPage() {
                     value={url}
                   />
                 </Form.Group>
-                {imgUrl.map((r) => {
+                {imgUrl.map((r, i) => {
                   return (
                     <>
                       <img
-                        key={r}
+                        key={i}
                         src={r}
                         alt="select one"
                         width={40}
@@ -245,9 +246,16 @@ function UploadPage() {
                   );
                 })}
                 <br></br>
-                <Button variant="primary" type="submit" className="my-2">
+                <motion.button
+                  className="btn btn-primary m-2"
+                  whileHover={{ scale: 1.2 }}
+                  type="submit"
+                >
+                  SEND
+                </motion.button>
+                {/* <Button variant="primary" type="submit" className="my-2">
                   Send
-                </Button>
+                </Button> */}
               </Form>
               <div className="my-3">
                 <h3 className="mb-2">Load audio:</h3>
@@ -258,7 +266,14 @@ function UploadPage() {
                     accept="/audio/mp3"
                     className="bottone"
                   />
-                  <Button onClick={handleUploadAudio}>Upload mp3</Button>
+                  <motion.button
+                    className="btn btn-primary mx-2"
+                    whileHover={{ scale: 1.2 }}
+                    onClick={handleUploadAudio}
+                  >
+                    UPLOAD MP3
+                  </motion.button>
+                  {/* <Button onClick={handleUploadAudio}>Upload mp3</Button> */}
                 </div>
               </div>
               <div className="my-3">
@@ -269,7 +284,14 @@ function UploadPage() {
                   onChange={handleChange}
                   accept="/image/*"
                 />
-                <Button onClick={handleUpload}>Upload Image</Button>
+                <motion.button
+                  className="btn btn-primary mx-2"
+                  whileHover={{ scale: 1.2 }}
+                  onClick={handleUpload}
+                >
+                  UPLOAD IMAGE
+                </motion.button>
+
                 <p>{percent} "% done"</p>
               </div>
             </>

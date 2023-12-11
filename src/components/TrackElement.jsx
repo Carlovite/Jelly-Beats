@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteElement, getBeatsRealTime } from "../redux/actions";
 import React, { useEffect, useRef, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 function TrackElement() {
   // const [isPlaying, setIsPlaying] = useState(false);
@@ -49,7 +50,11 @@ function TrackElement() {
     <>
       {tracks.map((r, i) => {
         return (
-          <div
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.1 }}
+            // transition={{ duration: 0.8 }}
             className=" w-100 text-white d-flex justify-content-around my-5 cardTrack rounded"
             key={r.id}
           >
@@ -126,7 +131,7 @@ function TrackElement() {
                 </Row>
               </Container>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </>

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addToCart, deleteElement } from "../../redux/actions";
 import { FaHeart } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 import Profile from "./ProfilePage";
 
@@ -49,9 +50,12 @@ function Details() {
               <h1> {params.uid.split("@")[0]}'s tracks</h1>
               {filtered.map((r, i) => {
                 return (
-                  <div
+                  <motion.div
                     className=" w-100 text-white d-flex justify-content-around my-5 cardTrack"
                     key={r.id}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{ scale: 1.1 }}
                   >
                     <audio
                       ref={audioPlayers.current[i]}
@@ -119,7 +123,7 @@ function Details() {
                         </Row>
                       </Container>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </Col>

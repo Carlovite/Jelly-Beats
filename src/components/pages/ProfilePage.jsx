@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteElement } from "../../redux/actions";
 import { MdModeEditOutline } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const Profile = () => {
   // const userInfo = useSelector((state) => state.user.authError);
@@ -49,9 +50,12 @@ const Profile = () => {
                 </h1>
                 {filtered.map((r, i) => {
                   return (
-                    <div
+                    <motion.div
                       className=" w-100 text-white d-flex justify-content-around rounded my-5 cardTrack"
                       key={r.id}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      whileHover={{ scale: 1.1 }}
                     >
                       <audio
                         ref={audioPlayers.current[i]}
@@ -116,7 +120,7 @@ const Profile = () => {
                           </Row>
                         </Container>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </Col>

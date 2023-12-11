@@ -33,7 +33,7 @@ const SearchPage = () => {
     <>
       <Container className="my-5">
         <Row>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="w-50">
             <Form.Control
               type="search"
               value={query}

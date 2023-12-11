@@ -1,8 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
 import AsideComponent from "../AsideComponent";
-
+import Jelly from "../../assets/drawing.png";
 import TrackElement from "../TrackElement";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.userEmail);
@@ -23,10 +24,27 @@ const Home = () => {
           <h2 className="text-center">Tracks you might like</h2>
           <TrackElement></TrackElement>
         </Col>
-        <Col md={4} className="text-light mb-3 ">
-          <h2 className="text-center Titoli">People you follow</h2>
-          <AsideComponent></AsideComponent>
+        <Col
+          sm={12}
+          md={4}
+          className="text-light mb-3 d-flex justify-content-center align-items-center"
+        >
+          <motion.img
+            alt="jelly-fish"
+            src={Jelly}
+            width={200}
+            className="z-3 "
+            whileHover={{ scale: 1.1, x: -120 }}
+            whileTap={{ scale: 0.9, y: -100, x: 120 }}
+            initial={{ scale: 1 }}
+          ></motion.img>
         </Col>
+
+        {/* <Col md={4} className="text-light mb-3 ">
+          {/* <h2 className="text-center Titoli">People you follow</h2>
+          <AsideComponent></AsideComponent> 
+          <img>src ={Jelly}</img>
+        </Col> */}
       </Row>
       <Row></Row>
     </Container>

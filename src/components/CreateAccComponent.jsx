@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../redux/actions";
+import { motion } from "framer-motion";
 
 const CreateAccComponent = () => {
   const dispatch = useDispatch();
@@ -48,9 +49,13 @@ const CreateAccComponent = () => {
                   setUserData({ ...userData, password: e.target.value })
                 }
               ></Form.Control>
-              <Button className="m-2" type="submit">
-                Create new Account
-              </Button>
+              <motion.button
+                className="btn btn-primary"
+                type="submit"
+                whileHover={{ scale: 1.2 }}
+              >
+                SIGN UP
+              </motion.button>
             </Form>
             {authError && <p className="text-center text-white">{authError}</p>}
           </Col>
