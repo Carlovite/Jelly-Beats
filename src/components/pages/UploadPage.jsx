@@ -128,7 +128,7 @@ function UploadPage() {
       });
     });
     setUid(IsUserLoggedIn);
-    setReleaseDate(new Date().toDateString());
+    setReleaseDate(new Date().toDateString().split(" ").slice(1).join(" "));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
