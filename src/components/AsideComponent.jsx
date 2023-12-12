@@ -21,6 +21,7 @@ const AsideComponent = () => {
     removeDuplicates(tracks);
     console.log(filteredTracks);
     setProfiles(filteredTracks);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const navigate = useNavigate();
 
@@ -31,14 +32,6 @@ const AsideComponent = () => {
           {profiles.map((r) => {
             return (
               <div key={r}>
-                {/* <img
-                src={r.url}
-                alt="profile"
-                width={60}
-                height={60}
-                className="rounded-circle m-2"
-                onClick={() => navigate(`/artist-page/${r.uid}`)}
-              ></img> */}
                 <h5
                   className="mb-0 mx-2 my-3"
                   onClick={() => navigate(`/artist-page/${r}`)}

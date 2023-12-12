@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 import AsideComponent from "../AsideComponent";
 
 const Profile = () => {
-  // const userInfo = useSelector((state) => state.user.authError);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
@@ -27,16 +26,15 @@ const Profile = () => {
 
     if (!newIsPlaying[i]) {
       audioPlayers.current[i].current.play();
-      // console.log(newIsPlaying[i]);
     } else {
       audioPlayers.current[i].current.pause();
-      // console.log(newIsPlaying[i]);
     }
   };
 
   useEffect(() => {
     let filteredBeat = tracks.filter((beat) => beat.uid === IsUserLoggedIn);
     setFiltered(filteredBeat);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

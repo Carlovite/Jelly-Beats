@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { FaHeart } from "react-icons/fa";
 import { IoMdAddCircle, IoMdPause, IoMdPlayCircle } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,14 +12,7 @@ function TrackDetailsComponent() {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.user.userEmail);
   const tracks = useSelector((state) => state.beats.stock);
-  const data = format(
-    new Date(
-      2023,
-      Math.floor(Math.random() * 12),
-      Math.floor(Math.random() * 31)
-    ),
-    "MM/dd/yyyy"
-  );
+
   const keys = [
     "C",
     "C#",
@@ -60,6 +52,7 @@ function TrackDetailsComponent() {
   useEffect(() => {
     let filteredBeat = tracks.filter((beat) => beat.id === params.id);
     setFiltered(filteredBeat[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -105,7 +98,7 @@ function TrackDetailsComponent() {
           <div className="d-flex align-items-center">
             {userInfo ? (
               <div
-                className="btn btn-outline-dark TwClickable"
+                className=" TwClickable"
                 onClick={() => {
                   dispatch(addToCart(filtered));
                 }}
@@ -123,7 +116,6 @@ function TrackDetailsComponent() {
         </div>
         <hr className="progress"></hr>
         <div className="d-flex justify-content-around w-100">
-          {/* <p className="text-center Fs8 mb-3 mx-3">INFORMATION</p> */}
           <div>
             <div className="d-flex mx-3 align-items-center w-100 justify-content-between">
               <span className=" Fs8 mb-2">Published:</span>

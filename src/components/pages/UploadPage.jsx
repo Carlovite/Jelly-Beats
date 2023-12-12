@@ -59,9 +59,7 @@ function UploadPage() {
       (err) => console.log(err),
       () => {
         // download url
-        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          console.log("entro qui?");
-        });
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {});
       }
     );
   };
@@ -131,8 +129,8 @@ function UploadPage() {
     });
     setUid(IsUserLoggedIn);
     setReleaseDate(new Date().toDateString());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log(imgUrl);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -174,7 +172,6 @@ function UploadPage() {
                     type="text"
                     placeholder="user"
                     required
-                    // onChange={console.log("user logged in")}
                     readOnly
                     value={uid.split("@")[0]}
                   />
@@ -213,15 +210,6 @@ function UploadPage() {
                     );
                   })}
                 </Form.Select>
-                {/* <Form.Group className="mb-3" controlId="audio-file">
-                  <Form.Control
-                    type="text"
-                    placeholder="audio url"
-                    required
-                    onChange={() => console.log("audio caricato correttamente")}
-                    value={audioMp3}
-                  />
-                </Form.Group> */}
 
                 <Form.Group className="mb-3" controlId="url">
                   <Form.Control
@@ -253,7 +241,6 @@ function UploadPage() {
                     type="text"
                     placeholder="date"
                     required
-                    // onChange={console.log("user logged in")}
                     readOnly
                     value={releaseDate}
                   />
@@ -265,9 +252,6 @@ function UploadPage() {
                 >
                   SEND
                 </motion.button>
-                {/* <Button variant="primary" type="submit" className="my-2">
-                  Send
-                </Button> */}
               </Form>
               <div className="my-3">
                 <h3 className="mb-2">Load audio:</h3>
@@ -285,7 +269,6 @@ function UploadPage() {
                   >
                     UPLOAD MP3
                   </motion.button>
-                  {/* <Button onClick={handleUploadAudio}>Upload mp3</Button> */}
                 </div>
               </div>
               <div className="my-3">

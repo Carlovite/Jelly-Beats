@@ -44,6 +44,7 @@ function TrackElement() {
 
   useEffect(() => {
     dispatch(getBeatsRealTime());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

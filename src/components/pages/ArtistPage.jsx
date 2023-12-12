@@ -37,6 +37,7 @@ function Details() {
   useEffect(() => {
     let filteredBeat = tracks.filter((beat) => beat.uid === params.uid);
     setFiltered(filteredBeat);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log(params);
   return (

@@ -36,7 +36,9 @@ function NavbarComponent() {
             <Link
               to="/search"
               className={
-                location.pathname === "/search" ? "nav-link active" : "nav-link"
+                location.pathname === "/search"
+                  ? "nav-link active"
+                  : "nav-link lessImportant"
               }
             >
               <FaSearch className="me-3"></FaSearch>

@@ -17,18 +17,6 @@ function EditPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // export const editPostById = async (id: string, body: string) => {
-  //   try {
-  //     const found = doc(db, "posts", id);
-  //     const data = await getDoc(found);
-  //     if (data.exists()) {
-  //       setDoc(found, { content: body }); //setDoc takes a document reference and how to change it
-  //     } else throw new Error("Data with id " + id + " was not found");
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -54,6 +42,7 @@ function EditPage() {
     setTitolo(filtered.title);
     setPrice(filtered.price);
     setBpm(filtered.bpm);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
