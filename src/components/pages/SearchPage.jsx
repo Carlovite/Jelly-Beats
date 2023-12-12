@@ -43,12 +43,12 @@ const SearchPage = () => {
           </Form>
         </Row>
         <Row>
-          {resultsTrack.map((r, i) => {
+          {resultsTrack.map((r) => {
             return (
               <>
                 <div
                   className=" w-100 text-white d-flex justify-content-around my-5 "
-                  key={i}
+                  key={r.id}
                 >
                   <img
                     src={r.url ? r.url : "https://placedog.net/500"}

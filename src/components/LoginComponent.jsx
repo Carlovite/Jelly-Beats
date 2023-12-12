@@ -19,7 +19,7 @@ const LoginComponent = () => {
       <Container className="my-5 pe-5">
         <Row className="d-flex justify-content-center">
           <h2 className="text-center text-white mb-3">
-            Login to start Shopping!
+            LOGIN TO START SHOPPING
           </h2>
           <Col sm={6}>
             <Form

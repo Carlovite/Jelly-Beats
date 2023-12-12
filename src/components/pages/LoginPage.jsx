@@ -1,13 +1,21 @@
 import { useState } from "react";
 import LoginComponent from "../LoginComponent";
 import CreateAccComponent from "../CreateAccComponent";
-
+import logo from "../../assets/jelly-beats.png";
+import { motion } from "framer-motion";
 const LogInPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
   return (
     <>
       <div className="my-5 d-flex flex-column justify-content-center align-items-center">
-        <h2 className="text-center mt-3 fw-bold">Welcome to AlphaBeat</h2>
+        <h2 className="text-center mt-3 fw-bold">Welcome to </h2>
+        <motion.img
+          alt="logo"
+          src={logo}
+          width={400}
+          whileHover={{ scale: 1.2 }}
+          transition={{ duration: 0.4 }}
+        ></motion.img>
         <h3 className="text-center ">New user?</h3>
         <div className="form-check">
           <input
