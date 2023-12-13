@@ -56,7 +56,10 @@ function Details() {
                     key={r.id}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+                    }}
                   >
                     <audio
                       ref={audioPlayers.current[i]}

@@ -294,7 +294,7 @@ function UploadPage() {
             <div className="d-flex flex-column align-items-center justify-content-center">
               <h2 className="text-center text-white">You must Log in first!</h2>
               <Button className="px-3" onClick={() => navigate("/login")}>
-                go
+                GO
               </Button>
             </div>
           )}

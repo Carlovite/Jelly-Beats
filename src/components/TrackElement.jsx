@@ -55,7 +55,10 @@ function TrackElement() {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+            }}
             // transition={{ duration: 0.8 }}
             className=" w-100 text-white d-flex justify-content-around my-5 cardTrack rounded"
             key={r.id}
