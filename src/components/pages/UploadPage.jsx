@@ -280,7 +280,7 @@ function UploadPage() {
                   accept="/image/*"
                 />
                 <motion.button
-                  className="btn btn-primary mx-2"
+                  className="btn btn-primary mx-2 my-2"
                   whileHover={{ scale: 1.2 }}
                   onClick={handleUpload}
                 >
@@ -292,7 +292,9 @@ function UploadPage() {
             </>
           ) : (
             <div className="d-flex flex-column align-items-center justify-content-center">
-              <h2 className="text-center text-white">You must Log in first!</h2>
+              <h2 className="text-center text-white mb-3">
+                You must Log in first!
+              </h2>
               <Button className="px-3" onClick={() => navigate("/login")}>
                 GO
               </Button>
