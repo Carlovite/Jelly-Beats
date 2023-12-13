@@ -32,7 +32,7 @@ const SearchPage = () => {
   return (
     <>
       <Container className="my-5">
-        <Row>
+        <Row className="d-flex justify-content-center">
           <Form onSubmit={handleSubmit} className="w-50">
             <Form.Control
               type="search"

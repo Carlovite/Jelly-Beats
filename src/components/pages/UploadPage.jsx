@@ -204,7 +204,7 @@ function UploadPage() {
                   <option>Select a track</option>
                   {mp3Url.map((url, i) => {
                     return (
-                      <option value={url} key={i}>
+                      <option value={url} key={"mp3" + i}>
                         {url}
                       </option>
                     );
@@ -224,7 +224,7 @@ function UploadPage() {
                   return (
                     <>
                       <img
-                        key={i}
+                        key={"img" + i}
                         src={r}
                         alt="select one"
                         width={40}

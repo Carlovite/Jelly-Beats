@@ -9,6 +9,7 @@ const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGN_IN:
       console.log("Login utente avvenuta con successo");
+      //salvo nel local storage
       return {
         ...state,
         authError: null,
@@ -23,6 +24,7 @@ const userReducer = (state = initialState, action) => {
       };
     case LOG_OUT:
       console.log("Logout utente avvenuta con successo");
+      //elimino dal local storage
       return {
         ...state,
         authError: null,

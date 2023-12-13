@@ -37,11 +37,11 @@ function EditPage() {
   };
 
   useEffect(() => {
-    let filteredBeat = tracks.filter((beat) => beat.id === params.id);
-    setFiltered(filteredBeat[0]);
-    setTitolo(filtered.title);
-    setPrice(filtered.price);
-    setBpm(filtered.bpm);
+    let filteredBeat = tracks.find((beat) => beat.id === params.id);
+    setFiltered(filteredBeat);
+    setTitolo(filteredBeat.title);
+    setPrice(filteredBeat.price);
+    setBpm(filteredBeat.bpm);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

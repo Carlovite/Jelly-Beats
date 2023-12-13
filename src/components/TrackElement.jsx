@@ -5,7 +5,7 @@ import { IoMdPlayCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getBeatsRealTime } from "../redux/actions";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 
@@ -13,12 +13,13 @@ function TrackElement() {
   // const [isPlaying, setIsPlaying] = useState(false);
   // const [duration, setDuration] = useState(0);
   // const [currentTime, setCurrentTime] = useState(0);
-  const tracks = useSelector((state) => state.beats.stock);
+  const tracks = useSelector((state) => state.beats?.stock);
   // const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
   // const audioPlayers = useRef(tracks.map(() => React.createRef()));
 
   const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
-  const audioPlayers = useRef(tracks.map(() => React.createRef()));
+
+  const audioPlayers = tracks.map(() => React.createRef());
 
   // const audioPlayer = useRef(null);
   // const progressBar = useRef();
@@ -34,10 +35,10 @@ function TrackElement() {
     setIsPlaying(newIsPlaying);
 
     if (!newIsPlaying[i]) {
-      audioPlayers.current[i].current.play();
+      audioPlayers[i].current.play();
       // console.log(newIsPlaying[i]);
     } else {
-      audioPlayers.current[i].current.pause();
+      audioPlayers[i].current.pause();
       // console.log(newIsPlaying[i]);
     }
   };
@@ -60,7 +61,7 @@ function TrackElement() {
             key={r.id}
           >
             <audio
-              ref={audioPlayers.current[i]}
+              ref={audioPlayers[i]}
               src={r.audioMp3}
               preload="metadata"
             ></audio>

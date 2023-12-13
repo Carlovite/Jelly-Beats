@@ -14,6 +14,9 @@ function NavbarComponent() {
 
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.user.userEmail);
+
+  //use effect controllo che email sia nel local storage se no rimando a page login
+
   return (
     <>
       <Navbar

@@ -46,7 +46,7 @@ function Details() {
         <Profile></Profile>
       ) : (
         <Container className="my-5">
-          <Row>
+          <Row className="d-flex justify-content-center">
             <Col md={6}>
               <h1> {params.uid.split("@")[0]}'s tracks</h1>
               {filtered.map((r, i) => {

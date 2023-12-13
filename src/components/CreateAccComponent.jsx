@@ -50,7 +50,7 @@ const CreateAccComponent = () => {
                 }
               ></Form.Control>
               <motion.button
-                className="btn btn-primary"
+                className="btn btn-primary m-2"
                 type="submit"
                 whileHover={{ scale: 1.2 }}
               >
