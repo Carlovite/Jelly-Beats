@@ -8,16 +8,17 @@ const Home = () => {
   return (
     <Container className="d-flex flex-column">
       <div className="d-flex w-100 justify-content-between">
-        <img
-          alt="jelly-fish"
-          src={Jelly}
-          width={100}
-          className="z-3 smalljelly"
-          // whileHover={{ scale: 1.1 }}
-          // whileTap={{ scale: 0.9 }}
-          // initial={{ scale: 1 }}
-        ></img>
-
+        <div className="d-flex justify-content-start">
+          <img
+            alt="jelly-fish"
+            src={Jelly}
+            width={100}
+            className="z-3 smalljelly d-none d-md-flex"
+            // whileHover={{ scale: 1.1 }}
+            // whileTap={{ scale: 0.9 }}
+            // initial={{ scale: 1 }}
+          ></img>
+        </div>
         {userInfo ? (
           <h1 className="text-center mt-5 mb-3 Titoli">
             Welcome back, {userInfo.split("@")[0]}...
@@ -27,16 +28,17 @@ const Home = () => {
             Login to start uploading your tracks!{" "}
           </h1>
         )}
-
-        <img
-          alt="jelly-fish"
-          src={Jelly}
-          width={100}
-          className="z-3 smalljelly"
-          // whileHover={{ scale: 1.1 }}
-          // whileTap={{ scale: 0.9 }}
-          // initial={{ scale: 1 }}
-        ></img>
+        <div className="d-flex justify-content-end">
+          <img
+            alt="jelly-fish"
+            src={Jelly}
+            width={100}
+            className="z-3 smalljelly d-none d-md-flex"
+            // whileHover={{ scale: 1.1 }}
+            // whileTap={{ scale: 0.9 }}
+            // initial={{ scale: 1 }}
+          ></img>
+        </div>
       </div>
 
       <hr className="progress"></hr>

@@ -26,7 +26,7 @@ const ShoppingCartPage = () => {
             {cart.map((beat, i) => (
               <div
                 key={i}
-                className="my-2 d-flex justify-content-start align-items-center text-white"
+                className="my-3 d-flex justify-content-start align-items-center text-white"
               >
                 <Button
                   variant=""
@@ -44,7 +44,8 @@ const ShoppingCartPage = () => {
                   height={40}
                   className="me-2"
                 />
-                <span className="ms-2">{beat.title}</span>
+                <span className="ms-2">{beat.title + " -"} </span>
+                <span className="ms-2">{beat.price + "$"}</span>
               </div>
             ))}
           </div>

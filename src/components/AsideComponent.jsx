@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const AsideComponent = () => {
   const tracks = useSelector((state) => state.beats.stock);
@@ -32,12 +33,13 @@ const AsideComponent = () => {
           {profiles.map((r) => {
             return (
               <div key={r}>
-                <h5
+                <motion.h5
+                  whileHover={{ scale: 1.2 }}
                   className="mb-0 mx-2 my-3"
                   onClick={() => navigate(`/artist-page/${r}`)}
                 >
                   {r.split("@")[0]}
-                </h5>
+                </motion.h5>
               </div>
             );
           })}

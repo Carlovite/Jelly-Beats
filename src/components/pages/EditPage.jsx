@@ -86,14 +86,15 @@ function EditPage() {
             </Form>
           </Col>
 
-          <div
+          <motion.div
             className="d-flex justify-content-center align-items-center TwClickable me-3 btn btn-danger w-25"
+            whileHover={{ scale: 1.2 }}
             onClick={() => {
               dispatch(deleteElement(filtered.id));
             }}
           >
-            <p className="mb-0">DELETE</p>
-          </div>
+            <p className="mb-0">DELETE TRACK</p>
+          </motion.div>
         </Row>
       </Container>
     </>
