@@ -1,21 +1,44 @@
 import { Col, Container, Row } from "react-bootstrap";
-
+import Jelly from "../../assets/drawing.png";
 import TrackElement from "../TrackElement";
 import { useSelector } from "react-redux";
 
 const Home = () => {
   const userInfo = useSelector((state) => state.user.userEmail);
   return (
-    <Container className="">
-      {userInfo ? (
-        <h1 className="text-center mt-5 mb-3 Titoli">
-          Welcome back, {userInfo.split("@")[0]}...
-        </h1>
-      ) : (
-        <h1 className="text-center mt-5 mb-3">
-          Login to start uploading your tracks!{" "}
-        </h1>
-      )}
+    <Container className="d-flex flex-column">
+      <div className="d-flex w-100 justify-content-between">
+        <img
+          alt="jelly-fish"
+          src={Jelly}
+          width={100}
+          className="z-3 smalljelly"
+          // whileHover={{ scale: 1.1 }}
+          // whileTap={{ scale: 0.9 }}
+          // initial={{ scale: 1 }}
+        ></img>
+
+        {userInfo ? (
+          <h1 className="text-center mt-5 mb-3 Titoli">
+            Welcome back, {userInfo.split("@")[0]}...
+          </h1>
+        ) : (
+          <h1 className="text-center mt-5 mb-3">
+            Login to start uploading your tracks!{" "}
+          </h1>
+        )}
+
+        <img
+          alt="jelly-fish"
+          src={Jelly}
+          width={100}
+          className="z-3 smalljelly"
+          // whileHover={{ scale: 1.1 }}
+          // whileTap={{ scale: 0.9 }}
+          // initial={{ scale: 1 }}
+        ></img>
+      </div>
+
       <hr className="progress"></hr>
       <Row className="d-flex my-4 justify-content-center">
         <Col sm={12} md={8} className="">

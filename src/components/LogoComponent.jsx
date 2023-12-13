@@ -22,8 +22,8 @@ const LogoComponent = () => {
               whileHover={{ scale: 1.2 }}
               alt="logo-page"
               src={Logo2}
-              width="90"
-              height="40"
+              width="100"
+              // height="40"
               className="d-inline-block align-top"
             />{" "}
           </div>

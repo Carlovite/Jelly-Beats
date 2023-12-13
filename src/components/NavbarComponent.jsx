@@ -32,7 +32,6 @@ function NavbarComponent() {
               src={Logo}
               alt="logo"
               width={100}
-              height={50}
             ></motion.img>
           </Link>
           <div className="d-flex align-items-center navlink">

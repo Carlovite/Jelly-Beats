@@ -193,3 +193,17 @@ body:before {
   animation: jello 3s infinite;
   transform-origin: center;
 }
+@keyframes smalljelly {
+  0%,
+  100% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+
+.smalljelly {
+  animation: smalljelly 3s infinite;
+  transform-origin: center;
+}
