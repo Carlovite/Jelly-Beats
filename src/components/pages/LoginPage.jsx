@@ -8,8 +8,8 @@ const LogInPage = () => {
   const [haveAccount, setHaveAccount] = useState(false);
   return (
     <>
-      <div className="my-5 d-flex flex-column justify-content-center align-items-center">
-        <h2 className="text-center mt-3 fw-bold">Welcome to </h2>
+      <div className="my-4 d-flex flex-column justify-content-center align-items-center">
+        <h2 className="text-center my-3 fw-bold">Welcome to </h2>
         <motion.img
           alt="logo"
           src={logo}
@@ -17,7 +17,7 @@ const LogInPage = () => {
           whileHover={{ scale: 1.2 }}
           transition={{ duration: 0.4 }}
         ></motion.img>
-        <h3 className="text-center ">New user?</h3>
+        <h3 className="text-center mt-2">New user?</h3>
         <div className="form-check">
           <input
             className="form-check-input"

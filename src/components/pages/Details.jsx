@@ -5,8 +5,8 @@ function Details() {
   return (
     <>
       <Container className="my-5">
-        <Row>
-          <Col md={8}>
+        <Row className="d-flex justify-content-center ">
+          <Col md={6}>
             <TrackDetailsComponent></TrackDetailsComponent>
           </Col>
         </Row>

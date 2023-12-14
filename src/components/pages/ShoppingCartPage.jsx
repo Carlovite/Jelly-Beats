@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart } from "../../redux/actions";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import apple from "../../assets/applepay.png";
+import paypal from "../../assets/paypal.png";
+import { motion } from "framer-motion";
 
 const ShoppingCartPage = () => {
   const cart = useSelector((state) => state.cart.content);
@@ -53,7 +56,7 @@ const ShoppingCartPage = () => {
         <Row>
           <Col
             sm={12}
-            className="fw-bold mb-3 ms-4 text-white d-flex justify-content-center"
+            className="fw-bold mb-3 text-white d-flex justify-content-center"
           >
             TOTALE:{" "}
             {cart
@@ -64,6 +67,28 @@ const ShoppingCartPage = () => {
               .toFixed(2)}
             $
           </Col>
+          <hr className="progress"></hr>
+
+          <div className="d-flex justify-content-center">
+            <motion.img
+              alt="pay-button-applepay"
+              src={apple}
+              width={100}
+              className="rounded mx-2"
+              whileHover={{
+                scale: 1.1,
+              }}
+            ></motion.img>
+            <motion.img
+              alt="pay-button-applepay"
+              src={paypal}
+              width={100}
+              className="rounded mx-2"
+              whileHover={{
+                scale: 1.1,
+              }}
+            ></motion.img>
+          </div>
         </Row>
       </Row>
     </Container>

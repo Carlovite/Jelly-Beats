@@ -8,6 +8,7 @@ import { deleteElement } from "../../redux/actions";
 import { MdModeEditOutline } from "react-icons/md";
 import { motion } from "framer-motion";
 import AsideComponent from "../AsideComponent";
+import Avatar from "../../assets/Default_pfp.svg.png";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -42,8 +43,29 @@ const Profile = () => {
       <Container className="my-5">
         {IsUserLoggedIn ? (
           filtered[0] ? (
-            <Row>
-              <Col sm={8}>
+            <Row className="gx-5">
+              <Col md={4}>
+                <div className="cardTrack rounded mt-5 d-flex flex-column justify-content-center align-items-center">
+                  <motion.img
+                    alt="profile"
+                    src={Avatar}
+                    width={100}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{
+                      scale: 1.1,
+                    }}
+                  ></motion.img>
+                  <span className="mb-0 mt-2">
+                    {IsUserLoggedIn.split("@")[0]}
+                  </span>
+                </div>
+                <div className="cardTrack rounded mt-5">
+                  <h2 className=" text-center Titoli">People you listen to:</h2>
+                  <AsideComponent></AsideComponent>
+                </div>
+              </Col>
+              <Col sm={6}>
                 <h1 className="mt-5 text-center Titoli">
                   Your Tracks, {IsUserLoggedIn.split("@")[0]}{" "}
                 </h1>
@@ -125,12 +147,6 @@ const Profile = () => {
                     </motion.div>
                   );
                 })}
-              </Col>
-              <Col md={4}>
-                <h2 className="mt-5 text-center Titoli">
-                  People you listen to:
-                </h2>
-                <AsideComponent></AsideComponent>
               </Col>
             </Row>
           ) : (

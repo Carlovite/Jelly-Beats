@@ -116,17 +116,21 @@ function TrackDetailsComponent() {
         </div>
         <hr className="progress"></hr>
         <div className="d-flex justify-content-around w-100">
-          <div>
+          <div className="d-flex flex-column">
             <div className="d-flex mx-3 align-items-center w-100 justify-content-between">
               <span className=" Fs8 mb-2">Published:</span>
-              <span className="lessImportant Fs8 mb-2">{filtered.date} </span>
+              <span className="lessImportant Fs8 mb-2 me-1">
+                {filtered.date}{" "}
+              </span>
             </div>
             <div className="d-flex mx-3 align-items-center w-100  justify-content-between">
               <span className=" Fs8 mb-2">BPM:</span>
-              <span className="lessImportant Fs8 mb-2"> {filtered.bpm} </span>
+              <span className="lessImportant Fs8 mb-2 me-1">
+                {" "}
+                {filtered.bpm}{" "}
+              </span>
             </div>
-          </div>
-          <div>
+
             <div className="d-flex mx-3 align-items-center w-100  justify-content-between">
               <span className=" Fs8 mb-2">Key:</span>
               <span className="lessImportant Fs8 mb-2">

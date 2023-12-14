@@ -10,20 +10,11 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 function TrackElement() {
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const [duration, setDuration] = useState(0);
-  // const [currentTime, setCurrentTime] = useState(0);
   const tracks = useSelector((state) => state.beats?.stock);
-  // const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
-  // const audioPlayers = useRef(tracks.map(() => React.createRef()));
 
   const [isPlaying, setIsPlaying] = useState(tracks.map(() => true));
 
   const audioPlayers = tracks.map(() => React.createRef());
-
-  // const audioPlayer = useRef(null);
-  // const progressBar = useRef();
-  // const animationRef = useRef();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

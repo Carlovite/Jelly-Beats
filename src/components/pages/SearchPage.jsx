@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
-import Jelly from "../../assets/drawing.png";
+// import Jelly from "../../assets/drawing.png";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SearchPage = () => {
   const [query, setQuery] = useState("");
@@ -32,9 +33,9 @@ const SearchPage = () => {
   return (
     <>
       <Container className="my-5">
-        <Row>
-          <Col md={8} className="d-flex flex-column">
-            <Form onSubmit={handleSubmit} className="w-50">
+        <Row className="d-flex flex-column justify-content-center align-items-center">
+          <Col md={8} className="d-flex flex-column align-items-center">
+            <Form onSubmit={handleSubmit} className="w-75 mb-2">
               <Form.Control
                 type="search"
                 value={query}
@@ -46,9 +47,15 @@ const SearchPage = () => {
             {resultsTrack.map((r) => {
               return (
                 <>
-                  <div
+                  <motion.div
                     className="  text-white d-flex justify-content-around my-5 cardTrack rounded"
                     key={r.id}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+                    }}
                   >
                     <img
                       src={r.url ? r.url : "https://placedog.net/500"}
@@ -77,7 +84,7 @@ const SearchPage = () => {
                         <hr className="w-100 progress mb-1"></hr>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </>
               );
             })}
@@ -85,9 +92,15 @@ const SearchPage = () => {
             {resultsProfile.map((r, i) => {
               return (
                 <>
-                  <div
+                  <motion.div
                     className="text-light d-flex align-items-center justify-content-start cardTrack rounded mt-3"
                     key={i}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileHover={{
+                      scale: 1.1,
+                      boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+                    }}
                   >
                     <img
                       src={r.url ? r.url : "https://placedog.net/500"}
@@ -103,12 +116,12 @@ const SearchPage = () => {
                     >
                       {r.uid.split("@")[0]}
                     </h5>
-                  </div>
+                  </motion.div>
                 </>
               );
             })}
           </Col>
-          <Col md={4}>
+          {/* <Col md={4}>
             <img
               alt="jelly-fish"
               src={Jelly}
@@ -118,7 +131,7 @@ const SearchPage = () => {
               // whileTap={{ scale: 0.9 }}
               // initial={{ scale: 1 }}
             ></img>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </>
