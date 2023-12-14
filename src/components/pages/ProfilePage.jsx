@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
 import { IoMdPause, IoMdPlayCircle } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteElement } from "../../redux/actions";
+
 import { MdModeEditOutline } from "react-icons/md";
 import { motion } from "framer-motion";
 import AsideComponent from "../AsideComponent";
@@ -12,7 +12,7 @@ import Avatar from "../../assets/Default_pfp.svg.png";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
   const tracks = useSelector((state) => state.beats.stock);
   const [filtered, setFiltered] = useState([]);
@@ -43,28 +43,47 @@ const Profile = () => {
       <Container className="my-5">
         {IsUserLoggedIn ? (
           filtered[0] ? (
-            <Row className="gx-5">
-              <Col md={4}>
-                <div className="cardTrack rounded mt-5 d-flex flex-column justify-content-center align-items-center">
-                  <motion.img
-                    alt="profile"
-                    src={Avatar}
-                    width={100}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    whileHover={{
-                      scale: 1.1,
-                    }}
-                  ></motion.img>
-                  <span className="mb-0 mt-2">
-                    {IsUserLoggedIn.split("@")[0]}
-                  </span>
+            <Row className=" d-flex justify-content-center">
+              <Col
+                sm={3}
+                className="profileCard rounded d-flex flex-column align-items-center mx-5"
+              >
+                <motion.img
+                  alt="profile"
+                  src={Avatar}
+                  width={100}
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  whileHover={{
+                    scale: 1.1,
+                  }}
+                ></motion.img>
+                <span className="mb-2 mt-2">
+                  {IsUserLoggedIn.split("@")[0]}
+                </span>
+                <div className=" d-flex flex-column justify-content-center align-items-stretch">
+                  <div className="d-flex justify-content-between ">
+                    <p className="mb-0 lessImportant">JOINED: </p>
+                    <p className="mb-0 ">2023</p>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <p className="mb-0 lessImportant">TRACKS: </p>
+                    <p className="mb-0 ">{filtered.length}</p>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <p className="mb-0 lessImportant me-2">FOLLOWERZ: </p>
+                    <p className="mb-0 ms-2"> 11 </p>
+                  </div>
                 </div>
-                <div className="cardTrack rounded mt-5">
-                  <h2 className=" text-center Titoli">People you listen to:</h2>
+
+                <h2 className=" text-center Titoli mt-5">
+                  People you should follow:
+                </h2>
+                <div className=" ">
                   <AsideComponent></AsideComponent>
                 </div>
               </Col>
+
               <Col sm={6}>
                 <h1 className="mt-5 text-center Titoli">
                   Your Tracks, {IsUserLoggedIn.split("@")[0]}{" "}
@@ -125,12 +144,7 @@ const Profile = () => {
                                   )}
                                 </div>
 
-                                <div
-                                  className="d-flex justify-content-center align-items-center TwClickable me-3"
-                                  onClick={() => {
-                                    dispatch(deleteElement(r.id));
-                                  }}
-                                >
+                                <div className="d-flex justify-content-center align-items-center TwClickable me-3">
                                   <FaHeart></FaHeart>
                                 </div>
                               </div>

@@ -178,6 +178,15 @@ body:before {
 
   padding: 1rem;
 }
+.profileCard {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 1%,
+    rgba(83, 58, 104, 1) 100%
+  );
+  padding: 1rem;
+}
 
 @keyframes jello {
   0%,

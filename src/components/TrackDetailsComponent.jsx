@@ -12,7 +12,7 @@ function TrackDetailsComponent() {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.user.userEmail);
   const tracks = useSelector((state) => state.beats.stock);
-
+  // const navigate = useNavigate();
   const keys = [
     "C",
     "C#",
@@ -75,9 +75,14 @@ function TrackDetailsComponent() {
             <Spinner animation="grow"></Spinner>
           )}
         </div>
-        <div className="w-25">
+        <div className="w-100 d-flex align-items-center justify-content-center ">
           <h3 className=" text-center">{filtered.title}</h3>
-          <p className=" text-center TwClickable">{filtered.artist}</p>
+          {/* <h3
+            className=" text-center TwClickable mx-2 "
+            onClick={() => navigate(`/artist-page/${filtered.uid}`)}
+          >
+            {"- " + userInfo.split("@")[0]}
+          </h3> */}
         </div>
         <div className="d-flex align-items-center justify-content-evenly w-100  px-3 mb-2">
           <div className="d-flex align-items-center ">

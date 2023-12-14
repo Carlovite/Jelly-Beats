@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 const AsideComponent = () => {
   const tracks = useSelector((state) => state.beats.stock);
   const [profiles, setProfiles] = useState([]);
-
+  const navigate = useNavigate();
   const filteredTracks = [];
+  const IsUserLoggedIn = useSelector((state) => state.user.userEmail);
 
   const removeDuplicates = (data) => {
     data.forEach((element) => {
@@ -20,29 +21,30 @@ const AsideComponent = () => {
 
   useEffect(() => {
     removeDuplicates(tracks);
-    console.log(filteredTracks);
+    // console.log(filteredTracks);
     setProfiles(filteredTracks);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const navigate = useNavigate();
 
   return (
     <>
       {profiles ? (
         <div className="text-light d-flex flex-column align-items-center justify-content-center">
-          {profiles.map((r) => {
-            return (
-              <div key={r}>
-                <motion.h5
-                  whileHover={{ scale: 1.2 }}
-                  className="mb-0 mx-2 my-3"
-                  onClick={() => navigate(`/artist-page/${r}`)}
-                >
-                  {r.split("@")[0]}
-                </motion.h5>
-              </div>
-            );
-          })}
+          {profiles
+            .filter((profiles) => profiles !== IsUserLoggedIn)
+            .map((r) => {
+              return (
+                <div key={r}>
+                  <motion.h5
+                    whileHover={{ scale: 1.2 }}
+                    className="  my-1"
+                    onClick={() => navigate(`/artist-page/${r}`)}
+                  >
+                    {r.split("@")[0]}
+                  </motion.h5>
+                </div>
+              );
+            })}
         </div>
       ) : (
         <div>

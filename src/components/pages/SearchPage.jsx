@@ -48,7 +48,7 @@ const SearchPage = () => {
               return (
                 <>
                   <motion.div
-                    className="  text-white d-flex justify-content-around my-5 cardTrack rounded"
+                    className=" w-100 text-white d-flex justify-content-around my-5 cardTrack rounded"
                     key={r.id}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -93,7 +93,7 @@ const SearchPage = () => {
               return (
                 <>
                   <motion.div
-                    className="text-light d-flex align-items-center justify-content-start cardTrack rounded mt-3"
+                    className="text-light w-100 d-flex align-items-center justify-content-start cardTrack rounded mt-3"
                     key={i}
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
