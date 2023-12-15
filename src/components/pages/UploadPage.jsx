@@ -1,5 +1,4 @@
 import { Col, Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { database } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
