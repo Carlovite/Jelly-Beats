@@ -300,9 +300,14 @@ function UploadPage() {
               <h2 className="text-center text-white mb-3">
                 You must Log in first!
               </h2>
-              <Button className="px-3" onClick={() => navigate("/login")}>
+              <motion.div
+                className="px-3 btn btn-primary"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => navigate("/login")}
+              >
                 GO
-              </Button>
+              </motion.div>
             </div>
           )}
         </Col>

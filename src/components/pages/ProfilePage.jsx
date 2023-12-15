@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { FaHeart } from "react-icons/fa";
 import { IoMdPause, IoMdPlayCircle } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -185,9 +185,14 @@ const Profile = () => {
             <h2 className="text-center text-white mb-3">
               You must Log in first!
             </h2>
-            <Button className="px-3" onClick={() => navigate("/login")}>
+            <motion.div
+              className="px-3 btn btn-primary"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => navigate("/login")}
+            >
               GO
-            </Button>
+            </motion.div>
           </div>
         )}
       </Container>

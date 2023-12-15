@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { addToCart } from "../redux/actions";
 import { Spinner } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 function TrackDetailsComponent() {
   const params = useParams();
@@ -57,7 +58,11 @@ function TrackDetailsComponent() {
 
   return (
     <>
-      <div className="d-flex flex-column cardTrack text-light rounded mx-3 p-4 ombra align-items-center">
+      <motion.div
+        className="d-flex flex-column cardTrack text-light rounded mx-3 p-4 ombra align-items-center"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+      >
         <audio
           ref={audioPlayer}
           src={filtered.audioMp3}
@@ -149,7 +154,7 @@ function TrackDetailsComponent() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
