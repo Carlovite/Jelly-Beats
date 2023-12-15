@@ -17,10 +17,10 @@ const CreateAccComponent = () => {
 
   return (
     <>
-      <Container className="my-5 pe-5">
+      <Container className="mt-4 mb-5  pe-5">
         <Row className="d-flex justify-content-center">
           <h2 className="text-center text-white mb-3">CREATE AN ACCOUNT!</h2>
-          <Col sm={6}>
+          <Col sm={4}>
             <Form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -53,6 +53,7 @@ const CreateAccComponent = () => {
                 className="btn btn-primary m-2"
                 type="submit"
                 whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
               >
                 SIGN UP
               </motion.button>

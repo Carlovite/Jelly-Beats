@@ -17,8 +17,8 @@ const LogInPage = () => {
           whileHover={{ scale: 1.2 }}
           transition={{ duration: 0.4 }}
         ></motion.img>
-        <h3 className="text-center mt-2">New user?</h3>
-        <div className="form-check">
+        {/* <h3 className="text-center mt-2">New user?</h3> */}
+        <div className="form-check mt-3">
           <input
             className="form-check-input"
             type="radio"

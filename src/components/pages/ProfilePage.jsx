@@ -46,42 +46,54 @@ const Profile = () => {
             <Row className=" d-flex justify-content-center">
               <Col
                 sm={3}
-                className="profileCard rounded d-flex flex-column align-items-center mx-5"
+                className="  d-flex flex-column align-items-center mx-5 mt-5"
               >
-                <motion.img
-                  alt="profile"
-                  src={Avatar}
-                  width={100}
+                <motion.div
+                  className="profileCard d-flex flex-column align-items-center w-100 rounded-top "
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  whileHover={{
-                    scale: 1.1,
-                  }}
-                ></motion.img>
-                <span className="mb-2 mt-2">
-                  {IsUserLoggedIn.split("@")[0]}
-                </span>
-                <div className=" d-flex flex-column justify-content-center align-items-stretch">
-                  <div className="d-flex justify-content-between ">
-                    <p className="mb-0 lessImportant">JOINED: </p>
-                    <p className="mb-0 ">2023</p>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <p className="mb-0 lessImportant">TRACKS: </p>
-                    <p className="mb-0 ">{filtered.length}</p>
-                  </div>
-                  <div className="d-flex justify-content-between">
-                    <p className="mb-0 lessImportant me-2">FOLLOWERZ: </p>
-                    <p className="mb-0 ms-2"> 11 </p>
-                  </div>
-                </div>
+                >
+                  <motion.img
+                    alt="profile"
+                    src={Avatar}
+                    width={100}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
 
-                <h2 className=" text-center Titoli mt-5">
-                  People you should follow:
-                </h2>
-                <div className=" ">
-                  <AsideComponent></AsideComponent>
-                </div>
+                    // whileHover={{
+                    //   scale: 1.1,
+                    // }}
+                  ></motion.img>
+                  <span className="mb-2 mt-2">
+                    {IsUserLoggedIn.split("@")[0]}
+                  </span>
+                  <div className=" d-flex flex-column justify-content-center align-items-stretch">
+                    <div className="d-flex justify-content-between ">
+                      <p className="mb-0 ">JOINED: </p>
+                      <p className="mb-0 ">2023</p>
+                    </div>
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-0 ">TRACKS: </p>
+                      <p className="mb-0 ">{filtered.length}</p>
+                    </div>
+                    <div className="d-flex justify-content-between">
+                      <p className="mb-0  me-2">FOLLOWERZ: </p>
+                      <p className="mb-0 ms-2"> 11 </p>
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="profileCardbottom d-flex flex-column align-items-center w-100 rounded-bottom  "
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                >
+                  <h2 className=" text-center Titoli mt-3">
+                    TOP Artists in your city:
+                  </h2>
+                  <div className=" ">
+                    <AsideComponent></AsideComponent>
+                  </div>
+                </motion.div>
               </Col>
 
               <Col sm={6}>

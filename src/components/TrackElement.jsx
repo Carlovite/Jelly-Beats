@@ -51,7 +51,7 @@ function TrackElement() {
               boxShadow: "0px 0px 8px rgb(255, 255, 255)",
             }}
             // transition={{ duration: 0.8 }}
-            className=" w-100 text-white d-flex justify-content-around my-5 cardTrack rounded"
+            className=" w-100 text-white d-flex justify-content-around my-5 cardTrack rounded fading"
             key={r.id}
           >
             <audio

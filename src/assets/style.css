@@ -182,8 +182,17 @@ body:before {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 1) 1%,
+    rgba(37, 22, 50, 1) 1%,
     rgba(83, 58, 104, 1) 100%
+  );
+  padding: 1rem;
+}
+.profileCardbottom {
+  background: rgb(83, 58, 104);
+  background: linear-gradient(
+    180deg,
+    rgba(83, 58, 104, 1) 1%,
+    rgba(37, 22, 50, 1) 100%
   );
   padding: 1rem;
 }
@@ -215,4 +224,19 @@ body:before {
 .smalljelly {
   animation: smalljelly 3s infinite;
   transform-origin: center;
+}
+
+.fading {
+  animation: fade 3s linear both;
+  animation-timeline: view();
+  animation-range: entry 25% cover 50%;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

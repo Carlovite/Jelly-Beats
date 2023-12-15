@@ -223,7 +223,7 @@ function UploadPage() {
                 {imgUrl.map((r, i) => {
                   return (
                     <>
-                      <img
+                      <motion.img
                         key={"img" + i}
                         src={r}
                         alt="select one"
@@ -231,6 +231,8 @@ function UploadPage() {
                         height={40}
                         className="me-2"
                         onClick={() => handleReset(r)}
+                        whileTap={{ scale: 0.9 }}
+                        whileHover={{ scale: 1.2 }}
                       />
                     </>
                   );
@@ -248,6 +250,7 @@ function UploadPage() {
                 <motion.button
                   className="btn btn-primary m-2"
                   whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
                   type="submit"
                 >
                   SEND
@@ -265,6 +268,7 @@ function UploadPage() {
                   <motion.button
                     className="btn btn-primary mx-2"
                     whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
                     onClick={handleUploadAudio}
                   >
                     UPLOAD MP3
@@ -283,6 +287,7 @@ function UploadPage() {
                   className="btn btn-primary mx-2 my-2"
                   whileHover={{ scale: 1.2 }}
                   onClick={handleUpload}
+                  whileTap={{ scale: 0.9 }}
                 >
                   UPLOAD IMAGE
                 </motion.button>
