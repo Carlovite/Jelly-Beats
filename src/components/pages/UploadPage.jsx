@@ -221,19 +221,17 @@ function UploadPage() {
                 </Form.Group>
                 {imgUrl.map((r, i) => {
                   return (
-                    <>
-                      <motion.img
-                        key={"img" + i}
-                        src={r}
-                        alt="select one"
-                        width={40}
-                        height={40}
-                        className="me-2"
-                        onClick={() => handleReset(r)}
-                        whileTap={{ scale: 0.9 }}
-                        whileHover={{ scale: 1.2 }}
-                      />
-                    </>
+                    <motion.img
+                      key={"img" + i}
+                      src={r}
+                      alt="select one"
+                      width={40}
+                      height={40}
+                      className="me-2"
+                      onClick={() => handleReset(r)}
+                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.2 }}
+                    />
                   );
                 })}
                 <br></br>

@@ -14,27 +14,27 @@ function TrackDetailsComponent() {
   const userInfo = useSelector((state) => state.user.userEmail);
   const tracks = useSelector((state) => state.beats.stock);
   // const navigate = useNavigate();
-  const keys = [
-    "C",
-    "C#",
-    "D",
-    "D#",
-    "E",
-    "F",
-    "F#",
-    "G",
-    "G#",
-    "A",
-    "A#",
-    "B",
-  ];
-  const scales = ["min", "Maj"];
+  // const keys = [
+  //   "C",
+  //   "C#",
+  //   "D",
+  //   "D#",
+  //   "E",
+  //   "F",
+  //   "F#",
+  //   "G",
+  //   "G#",
+  //   "A",
+  //   "A#",
+  //   "B",
+  // ];
+  // const scales = ["min", "Maj"];
   const [filtered, setFiltered] = useState([]);
   const audioPlayer = useRef(null);
 
-  const randomKeys = keys[Math.floor(Math.random() * keys.length)];
-  const randomScales = scales[Math.floor(Math.random() * 2)];
-  const randomViews = Math.floor(Math.random() * 1000);
+  // const randomKeys = keys[Math.floor(Math.random() * keys.length)];
+  // const randomScales = scales[Math.floor(Math.random() * 2)];
+  // const randomViews = Math.floor(Math.random() * 1000);
 
   const togglePlayPause = () => {
     const newIsPlaying = isPlaying;
@@ -145,12 +145,16 @@ function TrackDetailsComponent() {
               <span className=" Fs8 mb-2">Key:</span>
               <span className="lessImportant Fs8 mb-2">
                 {" "}
-                {randomKeys + "-" + randomScales}
+                {/* {randomKeys + "-" + randomScales} */}
+                G# minor
               </span>
             </div>
             <div className="d-flex mx-3 align-items-center w-100  justify-content-between">
               <span className=" Fs8 mb-2">Streams:</span>
-              <span className="lessImportant Fs8 mb-2"> {randomViews} </span>
+              <span className="lessImportant Fs8 mb-2">
+                {/* {randomViews}  */}
+                563
+              </span>
             </div>
           </div>
         </div>

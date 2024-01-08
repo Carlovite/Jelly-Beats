@@ -48,11 +48,12 @@ function EditPage() {
   return (
     <>
       <Container className="my-5">
-        <Row className="d-flex flex-column align-items-center justify-content-center w-100">
-          <h2>Edit Track</h2>
+        <Row className="d-flex flex-column align-items-center justify-content-center ">
+          <h2 className="text-center">Edit Track</h2>
           <Col md={8}>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
+                <span className="">Title</span>
                 <Form.Control
                   type="text"
                   placeholder={filtered.title}
@@ -61,6 +62,7 @@ function EditPage() {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="bpm">
+                <span className="">BPM</span>
                 <Form.Control
                   type="number"
                   placeholder={filtered.bpm}
@@ -69,6 +71,7 @@ function EditPage() {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="price">
+                <span className="">Price</span>
                 <Form.Control
                   type="number"
                   placeholder={filtered.price}

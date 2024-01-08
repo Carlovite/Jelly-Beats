@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
 
-      <hr className="progress"></hr>
+      <hr className="progress mx-auto"></hr>
       <Row className="d-flex my-4 justify-content-center">
         <Col sm={12} md={8} className="">
           <h2 className="text-center">Tracks you might like</h2>
